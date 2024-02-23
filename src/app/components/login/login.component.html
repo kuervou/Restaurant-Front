@@ -1,0 +1,24 @@
+<div class="container">
+    <mat-card class="login-card">
+      <div class="card-content">
+        <div class="title">
+          Iniciar Sesión
+        </div>
+        <mat-form-field appearance="outline" class="input-field">
+          <mat-label>Usuario</mat-label>
+          <input matInput type="text" [(ngModel)]="nick">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="input-field">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" [(ngModel)]="password"> 
+        </mat-form-field>
+  
+        <div class="confirm-btn">
+          <button mat-button color="primary" (click)="login()" >Confirmar</button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+
+  

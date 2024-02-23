@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: #D8D8D8;
+  
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      .back-button,
+      .actions {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  .remove{
+    background-color: #F96464;
+    
+  }
+
+  .add{
+    background-color: #4CA78E;
+    
+  }
+  
+  
+  
+  
+  

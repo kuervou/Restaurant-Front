@@ -1,0 +1,91 @@
+.bold-title {
+  font-weight: bold;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 1rem; /* Ya en rem */
+  }
+}
+
+.stat-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-card {
+  margin-top: 1rem; /* Ya en rem */
+  text-align: center;
+
+  &.total-ventas {
+    background-color: #4CA78E;
+  }
+
+  &.ordenes-procesadas {
+    background-color: #E1F180;
+  }
+
+  &.top-productos {
+    background-color: #57BCDC;
+  }
+}
+
+.stat-value {
+  font-size: 1.5rem; /* Cambiado de em a rem para mantener consistencia */
+  margin-top: 1rem; /* Ya en rem */
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem; /* 20px convertido a rem, asumiendo un tamaño de fuente base de 16px */
+}
+
+.stat-card.top-productos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centered-title {
+  width: 100%;
+  text-align: center;
+}
+
+.centered-list {
+  width: 100%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.centered-item {
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+}
+
+.producto-container {
+  display: flex;
+  align-items: center;
+}
+
+.producto-imagen {
+  width: 2.5rem; /* 40px convertido a rem */
+  height: 2.5rem; /* 40px convertido a rem */
+  margin-right: 0.625rem; /* 10px convertido a rem */
+  border-radius: 5px; /* El radio del borde suele dejarse en px */
+  object-fit: cover;
+}
+
+.producto-info {
+  flex-grow: 1;
+  display: flex;
+  align-items: center; 
+  min-width: 9.375rem; /* 150px convertido a rem */
+}

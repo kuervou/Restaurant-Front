@@ -1,0 +1,42 @@
+.cards-container {
+  display: grid;
+  gap: 1.25rem; // maintain the gap
+  padding: 4%; // maintain the padding
+  // Set to 2 columns by default, which will apply to larger screens
+  grid-template-columns: repeat(2, 1fr); 
+}
+
+.clickable-card {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 12.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(0,0,0,0.05);
+  }
+}
+
+mat-card-title {
+  font-size: 1.5rem; // This will apply to larger screens
+}
+
+// Modify your media queries
+@media (max-width: 768px) { // for tablets
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr); // maintain 2 columns
+  }
+  mat-card-title {
+    font-size: 1.2rem; // Adjust font size if needed
+  }
+}
+
+@media (max-width: 480px) { // for mobiles
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr); // maintain 2 columns
+  }
+  mat-card-title {
+    font-size: 1rem; // Adjust font size if needed
+  }
+}

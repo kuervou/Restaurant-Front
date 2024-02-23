@@ -1,0 +1,65 @@
+mat-expansion-panel-header {
+  justify-content: space-between;
+}
+mat-toolbar {
+  display: flex;
+  align-items: center; // Centrar verticalmente
+  .logo {
+    width: 10rem; /* Se mantiene si ya está en rem */
+    height: 11rem; /* Se mantiene si ya está en rem */
+    margin-right: 1rem; /* Se mantiene si ya está en rem */
+  }
+  .texts {
+    display: flex;
+    flex-direction: column; // Alineación vertical de los textos
+    align-items: center;
+    color: #1B4338;
+    .main-text {
+      font-size: 2rem; /* Convertido de em a rem para mantener la coherencia */
+      margin: 0; // Remueve márgenes adicionales
+    }
+    .subtitle {
+      font-size: 1rem; /* Se mantiene si ya está en rem */
+      margin-top: 0.3125rem; /* 5px convertido a rem */
+    }
+  }
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem 0; /* 10px convertido a rem */
+  border-bottom: 1px solid #e0e0e0; /* Esto añadirá una línea divisoria entre items */
+}
+
+.item-image {
+  width: 6rem; /* Se mantiene si ya está en rem */
+  height: 5rem; /* Se mantiene si ya está en rem */
+  margin-right: 1rem; /* Se mantiene si ya está en rem */
+}
+
+.item-title {
+  flex: 1; /* Esto hará que el título ocupe todo el espacio disponible entre la imagen y el icono */
+  font-size: 1.5rem; /* Convertido de em a rem para mantener la coherencia */
+}
+
+.item-icon {
+  color: #9E9E9E; /* Color de gris medio para el icono. Ajusta según lo desees */
+}
+
+.container-button {
+  position: fixed;
+  bottom: 0.5rem;  /* Se mantiene si ya está en rem */
+  left: 50%; /* Se mantiene, ya que es un valor porcentual */
+  transform: translateX(-50%); /* Se mantiene, ya que es una transformación */
+  display: flex;
+  width: 80%; /* Se mantiene, ya que es un valor porcentual */
+  flex-direction: column;
+  align-items: center;
+
+  .add-button {
+    width: 100%; /* Se mantiene, ya que es relativo al contenedor padre */
+    background-color: #2E8B57;
+    color: white;
+  }
+}

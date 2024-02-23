@@ -1,0 +1,48 @@
+<h2 mat-dialog-title>Agregar ítem</h2>
+
+<form [formGroup]="ItemMenuForm" (ngSubmit)="onSubmit()">
+
+    <mat-dialog-content class="dialog-content">
+        <!-- Vista previa de la imagen -->
+        <div class="image-preview" [style.backgroundImage]="selectedImage ? 'url(' + selectedImage + ')' : 'none'">
+            <input type="file" (change)="onImageSelected($event)" hidden #imageInput>
+            <button mat-icon-button class="upload-button" type="button" (click)="imageInput.click()">
+                <mat-icon>add_a_photo</mat-icon>
+              </button>
+        </div>
+
+        <!-- Campo de Nombre -->
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="nombre">
+        </mat-form-field>
+
+        <!-- Dropdown de Categoría y campo de Precio -->
+        <div class="row">
+            <mat-form-field class="half-width">
+                <mat-label>Grupo</mat-label>
+                <mat-select formControlName="grupoId">
+                    <mat-option *ngFor="let grupo of grupos" [value]="grupo.id">
+                        {{ grupo.nombre }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="half-width">
+                <mat-label>Precio</mat-label>
+                <input matInput formControlName="precio">
+            </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Descripcion</mat-label>
+            <input matInput formControlName="descripcion">
+        </mat-form-field>
+    </mat-dialog-content>
+
+    <mat-dialog-actions class="dialog-actions">
+        <button mat-button (click)="onCancel()">Cancelar</button>
+        <button mat-button color="primary" type="submit">Confirmar</button>
+    </mat-dialog-actions>
+
+</form>

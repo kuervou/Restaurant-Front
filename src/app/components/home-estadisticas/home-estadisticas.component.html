@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div style="display: flex; justify-content: center;"><h1>Estadísticas</h1></div>
+<div style="padding-left: 4%;">
+<button mat-icon-button (click)="navigateTo('homeadmin')">
+  <mat-icon class="back-arrow">arrow_back</mat-icon>
+</button>
+</div>
+<div class="cards-container">
+    <mat-card  class="clickable-card" style="grid-column-start: 2; grid-column-end: 3; background-color: #1B4338; color: #FFFFFF;" (click)="navigateTo('estadisticasgenerales')">
+      <mat-card-title>Estadisticas generales</mat-card-title>
+    </mat-card>
+  
+    <mat-card  class="clickable-card" style="background-color: #E8FFF9; color: #000000;" (click)="navigateTo('estadisticasventas')">
+      <mat-card-title>Estadisticas de ventas</mat-card-title>
+    </mat-card>
+  
+    <mat-card  class="clickable-card" style="grid-column-start: 2; grid-column-end: 3; background-color: #1B4338; color: #FFFFFF;" (click)="navigateTo('estadisticasclientes')">
+      <mat-card-title>Estadísticas de clientes</mat-card-title>
+    </mat-card>
+  
+    <mat-card class="clickable-card" style="background-color: #E8FFF9; color: #000000;" (click)="navigateTo('estadisticasbarra')">
+      <mat-card-title>Estadísticas barra</mat-card-title>
+    </mat-card>
+  </div>
+  

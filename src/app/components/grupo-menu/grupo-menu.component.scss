@@ -1,0 +1,110 @@
+.container {
+    background-color: #7D9A93;
+    height: 100%; /* Se mantiene, ya que es relativo al contenedor padre */
+    width: 100%; /* Se mantiene, ya que es relativo al contenedor padre */
+    padding: 0; /* No requiere conversión */
+}
+
+.custom-toolbar {
+    background-color: #D1F4EB;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto; /* Se mantiene, ya que es relativo al contenido */
+
+    .logo {
+        width: 3.75rem; /* 60px convertido a rem */
+        height: auto; /* Se mantiene, para mantener la proporción de la imagen */
+    }
+    .back-arrow {
+        color: #273B4A; /* El color no requiere conversión */
+    }
+    .spacer {
+        flex: 1; /* Se mantiene, ya que es una propiedad de flex */
+    }
+
+    button[mat-icon-button] {
+        margin-right: auto; /* Se mantiene, ya que es un valor automático */
+    }
+}
+
+.header-panel {
+    font-size: 1.5rem; /* Se mantiene si ya está en rem */
+    font-weight: bold;
+    color: #000; /* El color no requiere conversión */
+}
+
+.menu-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #E0E0E0; /* Los bordes suelen mantenerse en px para que se vean bien */
+    padding: 0.9375rem 0; /* 15px convertido a rem */
+
+    .item-image {
+        width: 6rem; /* Se mantiene si el tamaño es el deseado */
+        height: 5rem; /* Se mantiene si el tamaño es el deseado */
+        margin-right: 1rem; /* Se mantiene si ya está en rem */
+    }
+
+    .item-details {
+        flex-grow: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .item-text {
+            display: flex;
+            flex-direction: column;
+
+            .item-title {
+                font-size: 1.2rem; /* Se mantiene si ya está en rem */
+                font-weight: bold;
+                margin-bottom: 0.3125rem; /* 5px convertido a rem */
+            }
+
+            .item-description {
+                font-size: 0.9rem; /* Se mantiene si ya está en rem */
+                color: #7D7D7D; /* El color no requiere conversión */
+            }
+        }
+
+        .item-price-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            .item-price {
+                margin-right: 0.625rem; /* 10px convertido a rem */
+                font-size: 1.5rem; /* Se mantiene si ya está en rem */
+                font-weight: bold;
+            }
+
+            .item-count {
+                background-color: #D1F4EB; 
+                color: #273B4A;
+                border-radius: 50%; /* Se mantiene, ya que es una forma geométrica */
+                padding: 0.3125rem 0.625rem; /* 5px y 10px convertidos a rem */
+                font-weight: bold;
+                z-index: 1; /* Se mantiene, ya que es relativo a la pila de elementos */
+            }
+        }
+    }
+}
+
+.container-button {
+    position: fixed;
+    bottom: 0.5rem; /* Se mantiene si ya está en rem */
+    left: 50%; /* Se mantiene, ya que es un valor porcentual */
+    transform: translateX(-50%); /* Se mantiene, ya que es una transformación */
+    display: flex;
+    width: 80%; /* Se mantiene, ya que es un valor porcentual */
+    flex-direction: column;
+    align-items: center;
+
+    .add-button {
+        width: 100%; /* Se mantiene, ya que es relativo al contenedor padre */
+        background-color: #2E8B57; /* El color no requiere conversión */
+        color: white; /* El color no requiere conversión */
+    }
+}

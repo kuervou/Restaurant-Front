@@ -1,0 +1,41 @@
+/* Estilos para el modal */
+.modal {
+    background-color: #F4F4F4;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* Estilos para el título "Desea liberar la mesa" */
+  .modal-message {
+    color: #000000;
+    margin: 20px 0;
+  }
+
+  /* Estilos para el contenedor de botones */
+  .modal-buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  /* Estilo para los botones */
+  .modal-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  /* Estilo para el botón "Volver" */
+  #volver {
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+
+  /* Estilo para el botón "Confirmar" */
+  #confirmar {
+    background-color: #4CA78E;
+    color: #FFFFFF;
+  }

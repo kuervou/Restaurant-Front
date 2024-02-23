@@ -1,0 +1,77 @@
+<div style="background-color: #D3D7D1;">
+    <div class="header">
+        <h2>La Puerta Verde</h2>
+        <span>29/08/2023 23:22</span>
+    </div>
+
+    <mat-dialog-content>
+        <h1>Resumen de la Orden</h1>
+        <div class="div-resumen">
+            <table style="width: 100%; height: 100%;">
+                <tr>
+                    <td>Cant</td>
+                    <td>Producto</td>
+                    <td>$ por unidad</td>
+                    <td>$total</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Hamburguesa con Fritas</td>
+                    <td>120</td>
+                    <td>120</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Hamburguesa con Fritas</td>
+                    <td>120</td>
+                    <td>120</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Hamburguesa con Fritas</td>
+                    <td>120</td>
+                    <td>120</td>
+                </tr>
+                <!-- Agrega más filas según sea necesario -->
+            </table>
+            <mat-divider></mat-divider>
+            <mat-label style="display:flex; justify-content:flex-end; padding-right: 1rem;">TOTAL: $1700</mat-label>
+        </div>
+
+        <div class="div-obs">
+            <h3>Observaciones</h3>
+            <ul>
+                <li>Sin pepino</li>
+                <li>Sin mayonesa</li>
+            </ul>
+        </div>
+    </mat-dialog-content>
+    <div class="payment-options">
+        <div class="payment-label-radio">
+          <span>Paga:</span>
+          <mat-radio-group>
+              <mat-radio-button color="primary" value="total" class="radio-btn" disabled="true">Total</mat-radio-button>
+              <mat-radio-button color="primary" value="parcial" class="radio-btn" checked="true">Parcial</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="payment-label-input">
+            <label>Monto:</label>
+            <mat-form-field appearance="fill" class="input-field">
+                <input matInput [(ngModel)]="monto" readonly>
+            </mat-form-field>
+          </div>
+        <div class="payment-label-select">
+          <label>Método Pago:</label>
+          <mat-form-field appearance="fill" class="half-width">
+              <mat-select [(ngModel)]="metodo">
+                <mat-option value="efectivo">Efectivo</mat-option>
+                <mat-option value="Transferencia">Transferencia</mat-option>
+              </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-dialog-actions class="dialog-actions">
+        <button mat-button style="justify-content: center;">Cancelar</button>
+        <button mat-button color="primary">Confirmar</button>
+      </mat-dialog-actions>
+</div>

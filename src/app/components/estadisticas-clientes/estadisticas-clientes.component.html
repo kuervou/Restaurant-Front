@@ -1,0 +1,85 @@
+<mat-card>
+    <button mat-button class="back-button" (click)="navigateTo('estadisticas')">
+        <mat-icon>arrow_back</mat-icon> Volver
+      </button>
+    <mat-card-header>
+        <mat-card-title class="bold-title">Estadísticas Clientes</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="filters">
+            <!-- Primer select -->
+            <mat-form-field appearance="fill">
+                <mat-label>Filtrar por</mat-label>
+                <mat-select [(value)]="selectedFilter" (selectionChange)="onFilterChange($event)">
+                    <mat-option value="dia">Dia</mat-option>
+                    <mat-option value="mes">Mes</mat-option>
+                    <mat-option value="anio">Año</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="selectedFilter === 'dia'" appearance="fill">
+                <mat-label>Selecciona una fecha</mat-label>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate"
+                    (dateChange)="onSecondFilterChange($event)">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <!-- Segundo select: cambia según el valor del primero -->
+            <mat-form-field *ngIf="selectedFilter !== 'dia'" appearance="fill">
+                <mat-label>Selecciona</mat-label>
+                <mat-select [(value)]="selectedValue" (selectionChange)="onSecondFilterChange($event)">
+                    <mat-option *ngFor="let option of currentOptions" [value]="option">{{ option }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="stat-section">
+            <mat-card class="stat-card total-ventas">
+                <mat-card-content>
+                    <mat-card-title>Consumo total efectivo</mat-card-title>
+                    <div class="stat-value">{{ consumoTotalEfectivo| currency }}</div>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card class="stat-card ordenes-procesadas">
+                <mat-card-content>
+                    <mat-card-title>Consultar consumo</mat-card-title>
+
+                    <!-- Agrega el select de clientes aquí -->
+                    <!-- Agrega el select de clientes aquí -->
+                    <div class="filters">
+                    <mat-form-field appearance="fill" style="margin-top: 0.5rem;">
+                        <mat-label>Cliente</mat-label>
+                        <mat-select [(value)]="selectedClient" (selectionChange)="onClientChange($event)">
+                            <mat-option *ngFor="let cliente of clientesPreferenciales" [value]="cliente.id">
+                                {{ cliente.nombre }} {{ cliente.apellido }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    </div>
+                    <!-- Muestra el consumo del cliente seleccionado -->
+                    <div class="stat-value" *ngIf="selectedClient">{{ clientConsumption | currency }}</div>
+                </mat-card-content>
+            </mat-card>
+
+
+            <mat-card class="stat-card top-productos">
+                <mat-card-content>
+                    <mat-card-title class="centered-title">Top 5 Clientes</mat-card-title>
+                    <mat-list class="centered-list">
+                        <mat-list-item *ngFor="let cliente of topClientes" class="centered-item">
+                            <div class="producto-container">
+                                <div class="producto-info">
+                                    {{ cliente.nombreCliente }} {{ cliente.apellidoCliente }} -
+                                    Ordenes: {{ cliente.cantidadOrdenes }} -
+                                    Consumo: {{ cliente.totalConsumo | currency }}
+                                </div>
+                            </div>
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </mat-card-content>
+</mat-card>

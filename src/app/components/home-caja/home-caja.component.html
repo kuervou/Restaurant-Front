@@ -1,0 +1,170 @@
+<app-header></app-header>
+<!-- home-caja.component.html -->
+<div class="green-card" style="position: relative;">
+  <div class="container">
+    <button
+      mat-raised-button
+      class="mat-button"
+      style="margin-right: 10px; background-color: #79d3b3"
+      (click)="openAgregarDialog()"
+    >
+      Añadir Orden
+    </button>
+    <button
+      mat-raised-button
+      class="mat-button"
+      style="background-color: #79d3b3"
+      (click)="openVentaBebidasDialog()"
+    >
+      Venta Bebida
+    </button>
+    <button
+      mat-fab
+      class="mat-fab"
+      style="
+        background-color: #d1d1d1;
+        color: black;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      "
+      (click)="openHistorialOrdenes()">
+      <mat-icon>schedule</mat-icon>
+    </button>
+    <button (click)="openAbrirBotellasModal()"
+      mat-fab
+      class="mat-fab"
+      style="
+        background-color: #d1d1d1;
+        color: black;
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        margin-top: 45px;
+      "
+    >
+      <mat-icon>local_cafe</mat-icon>
+    </button>
+    <div fxLayout="row" style="margin-top: 10px">
+      <!-- Lado izquierdo (Tabla) -->
+    <mat-card fxFlex="20%" fxFlex.lt-sm="100%" class="mat-card">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Mesa</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let mesa of mesasOcupadas">
+            <td>Mesa {{ mesa.nroMesa }}</td>
+            <td>
+              <button mat-icon-button class="mat-button" (click)="openModalConMesa(mesa)">
+                <mat-icon>menu</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-card>
+
+
+      <div style="width: 5%"></div>
+      <!-- Elemento espaciador -->
+      <!-- Lado derecho (Órdenes) -->
+      <mat-card fxFlex="72%" fxFlex.lt-sm="100%" class="mat-card">
+        <div class="orders-flex-container" style="background-color: #7d9a93">
+          <mat-card class="order-card" *ngFor="let orden of ordenes">
+            <!-- Estado y Paga -->
+            <mat-card-header
+              class="order-header"
+              [ngStyle]="getCardHeaderStyle(orden.estado)"
+            >
+              <mat-card-title-group>
+                <mat-card-title>Estado: {{ orden.estado }}</mat-card-title>
+                <mat-card-title
+                  >Paga: {{ orden.paga ? "Sí" : "No" }}</mat-card-title
+                >
+                <button
+                *ngIf="orden.estado !== ESTADOS.POR_CONFIRMAR"
+                mat-raised-button
+                style="background-color: #ffff; text-align: center" (click)="openModificarOrdenModal(orden)"
+              >
+                <mat-icon class="big-icon" >edit</mat-icon>
+              </button>
+              </mat-card-title-group>
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <!-- Información de la orden -->
+            <mat-card-content class="order-info">
+              <mat-card-title
+                >Orden nº {{ orden.id }} {{ orden.hora }}</mat-card-title
+              >
+              <p>
+                Mesa {{ getMesas(orden) }} - Mozo: {{ orden.empleado?.nombre  || 'Autoservicio'}}
+              </p>
+              <ng-container *ngIf="orden.cliente">
+                <p>Cliente: {{ orden.cliente.nombre }}</p>
+              </ng-container>
+              <div class="order-items">
+                <p *ngFor="let item of orden.items">
+                  {{ item.cantidad }} x {{ item.itemMenu.nombre }}
+                </p>
+              </div>
+            </mat-card-content>
+            <mat-divider></mat-divider>
+            <mat-card-content class="order-total">
+              <div class="total-pago-container">
+                <div>Total: ${{ orden.total }}</div>
+                <div>Pago: ${{ pagosOrdenMap.get(orden.id) || 0 }}</div>
+              </div>
+            </mat-card-content>
+
+            <mat-divider></mat-divider>
+
+            <mat-card-actions class="order-actions">
+              <!-- Botón de Confirmar (solo si el estado es POR_CONFIRMAR) -->
+              <button
+                *ngIf="orden.estado === ESTADOS.POR_CONFIRMAR"
+                mat-raised-button
+                style="background-color: #4ca78e; text-align: center"
+                (click)="cambiarEstado(orden.id, ESTADOS.EN_COCINA)"
+              >
+                <mat-icon class="big-icon">check_circle</mat-icon>
+              </button>
+
+              <!-- Botón de Información (solo si el estado NO es POR_CONFIRMAR) -->
+              <button
+                *ngIf="orden.estado !== ESTADOS.POR_CONFIRMAR"
+                mat-raised-button
+                style="background-color: #57bcdc; text-align: center"
+                (click)="openConsultarOrden(orden)"
+              >
+                <mat-icon class="big-icon">info</mat-icon>
+              </button>
+
+              <!-- Botón de Pagar (solo si el estado NO es POR_CONFIRMAR) -->
+              <button
+                *ngIf="orden.estado !== ESTADOS.POR_CONFIRMAR"
+                mat-raised-button
+                style="background-color: #4ca78e; text-align: center" (click)="openModalOrdenModal(orden)"
+              >
+                <mat-icon> monetization_on</mat-icon>
+              </button>
+
+              <!-- Botón de Eliminar (para todos los estados) -->
+              <button
+                mat-raised-button
+                style="background-color: #e98383; text-align: center"
+                (click)="cancelarOrden(orden.id)"
+              >
+                <mat-icon class="big-icon">delete</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<app-footer-caja></app-footer-caja>

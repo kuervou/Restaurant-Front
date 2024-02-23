@@ -1,0 +1,73 @@
+<div style="background-color: #D3D7D1;">
+    <div class="header">
+        <h2>La Puerta Verde</h2>
+        <span>{{ currentDate | date:'dd/MM/yyyy HH:mm' }}</span>
+    </div>
+
+    <mat-dialog-content>
+        <h1>Resumen de la Orden</h1>
+        <div class="div-resumen">
+            <table mat-table [dataSource]="ordenesInfo.detalles" >
+                <ng-container matColumnDef="ordenId">
+                    <th mat-header-cell *matHeaderCellDef>ID Orden</th>
+                    <td mat-cell *matCellDef="let detalle">{{detalle.ordenId}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="totalOrden">
+                    <th mat-header-cell *matHeaderCellDef>Total Orden</th>
+                    <td mat-cell *matCellDef="let detalle">{{detalle.totalOrden | currency}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="totalPagado">
+                    <th mat-header-cell *matHeaderCellDef>Total Pagado</th>
+                    <td mat-cell *matCellDef="let detalle">{{detalle.totalPagado | currency}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="restaPagar">
+                    <th mat-header-cell *matHeaderCellDef>Resta Pagar</th>
+                    <td mat-cell *matCellDef="let detalle">{{(detalle.totalOrden - detalle.totalPagado) | currency}}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-divider></mat-divider>
+            <mat-label style="display:flex; justify-content:flex-end; padding-right: 1rem;">
+                TOTAL GENERAL: {{ordenesInfo.totalGeneralOrden | currency}}
+            </mat-label>
+            <mat-divider></mat-divider>
+            <mat-label style="display:flex; justify-content:flex-end; padding-right: 1rem;">
+                TOTAL PAGADO: {{ordenesInfo.totalGeneralPagado | currency}}
+            </mat-label>
+            <mat-divider></mat-divider>
+            <mat-label style="display:flex; justify-content:flex-end; padding-right: 1rem; font-weight: bold;">     
+            TOTAL A PAGAR : {{ordenesInfo.totalGeneralOrden - ordenesInfo.totalGeneralPagado | currency}}
+            </mat-label>
+        </div>
+    </mat-dialog-content>
+    <div class="payment-options">
+        <div class="payment-label-radio">
+          <span>Paga:</span>
+          <mat-radio-group>
+              <mat-radio-button color="primary" value="total" class="radio-btn" checked="true">Total</mat-radio-button>
+              <mat-radio-button color="primary" value="parcial" class="radio-btn" disabled="true">Parcial</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        
+        <!-- Selección de Método de Pago -->
+        <div class="payment-label-select">
+            <label>Método Pago:</label>
+            <mat-form-field appearance="fill" class="half-width">
+                <mat-select [(ngModel)]="metodoPago" >
+                    <mat-option *ngFor="let metodo of metodosPago" [value]="metodo.value">
+                      {{ metodo.viewValue }}
+                    </mat-option>
+                  </mat-select>
+            </mat-form-field>
+        </div>
+      </div>
+      <mat-dialog-actions class="dialog-actions">
+        <button mat-button style="justify-content: center;" mat-dialog-close>Cancelar</button>
+        <button mat-button color="primary" (click)="pagarTodo()">Confirmar</button>
+      </mat-dialog-actions>
+</div>

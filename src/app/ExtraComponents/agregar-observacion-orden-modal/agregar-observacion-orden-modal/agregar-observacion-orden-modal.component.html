@@ -1,0 +1,11 @@
+<h2>Observación</h2>
+
+<mat-dialog-content>
+    <textarea matInput placeholder="Agregue su comentario aquí..." [(ngModel)]="data.comentario"></textarea>
+</mat-dialog-content>
+  
+<mat-dialog-actions class="dialog-actions">
+    <button mat-button (click)="onCancel()">Cancelar</button>
+    <!-- Usa (click)="onConfirm()" para manejar el evento click -->
+    <button mat-button color="primary" (click)="onConfirm()">Confirmar</button>
+</mat-dialog-actions>

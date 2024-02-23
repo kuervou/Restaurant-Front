@@ -1,0 +1,119 @@
+<app-header></app-header>
+<div class="container">
+  
+  <div class="header">
+    <button mat-button class="back-button" (click)="navigateTo('homeadmin')">
+      <mat-icon>arrow_back</mat-icon> Volver
+    </button>
+
+    <div class="actions">
+      <mat-form-field appearance="fill" class="filter">
+        <mat-label>Filtro</mat-label>
+        <mat-select (selectionChange)="onFilterChange($event)">
+          <mat-option value="nombre">Nombre</mat-option>
+          <mat-option value="categoriaId">Categoría</mat-option>
+          <!-- Agregar más opciones de filtro si es necesario -->
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Campo de búsqueda dinámico -->
+      <ng-container *ngIf="filterField !== 'categoriaId'">
+        <mat-form-field appearance="fill" class="search">
+            <mat-label>Buscar</mat-label>
+            <input matInput #searchInput (keyup)="onSearchChange(searchInput.value)">
+        </mat-form-field>
+      </ng-container>
+
+      <!-- Dropdown de categorías para filtrar -->
+      <ng-container *ngIf="filterField === 'categoriaId'">
+        <mat-form-field appearance="fill" class="search">
+            <mat-label>Categoría</mat-label>
+            <mat-select (selectionChange)="onCategoryChange($event)">
+                <mat-option *ngFor="let cat of categorias" [value]="cat.id">{{ cat.nombre }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+      </ng-container>
+
+      <button mat-raised-button class="add-button" (click)="openDialog()">
+          Agregar<br>Ítem
+      </button>
+    </div>
+  </div>
+
+  <mat-table [dataSource]="dataSource">
+
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="nombre">
+      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.nombre}} </mat-cell>
+    </ng-container>
+
+    <!-- Categoría Column -->
+    <ng-container matColumnDef="categoria">
+      <mat-header-cell *matHeaderCellDef> Categoría </mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.categoria.nombre}} </mat-cell>
+    </ng-container>
+
+    <!-- Stock Column -->
+    <ng-container matColumnDef="stock">
+      <mat-header-cell *matHeaderCellDef> Stock </mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.stock}} </mat-cell>
+    </ng-container>
+
+    <!-- Costo Column -->
+    <ng-container matColumnDef="costo">
+      <mat-header-cell *matHeaderCellDef> Costo </mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.costo | currency}} </mat-cell>
+    </ng-container>
+
+    <!-- Acciones Column -->
+<ng-container matColumnDef="acciones">
+  <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+  <mat-cell *matCellDef="let item">
+    <!-- Botones individuales, visibles solo en pantallas grandes -->
+    <div class="actions-large-screen">
+      <button mat-icon-button (click)="openAddStockDialog(item)">
+        <mat-icon>add_circle_outline</mat-icon>
+      </button>    
+      <button mat-icon-button (click)="openRemoveStockDialog(item)">
+        <mat-icon>remove_circle_outline</mat-icon>
+      </button>    
+      <button mat-icon-button (click)="openEditDialog(item)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="openDeleteDialog(item)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+    
+    <!-- Botón de menú desplegable, visible solo en pantallas pequeñas -->
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="actions-small-screen">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="openAddStockDialog(item)">
+        <mat-icon>add_circle_outline</mat-icon>
+        <span>Añadir stock</span>
+      </button>
+      <button mat-menu-item (click)="openRemoveStockDialog(item)">
+        <mat-icon>remove_circle_outline</mat-icon>
+        <span>Remover stock</span>
+      </button>
+      <button mat-menu-item (click)="openEditDialog(item)">
+        <mat-icon>edit</mat-icon>
+        <span>Editar</span>
+      </button>
+      <button mat-menu-item (click)="openDeleteDialog(item)">
+        <mat-icon>delete</mat-icon>
+        <span>Eliminar</span>
+      </button>
+    </mat-menu>
+  </mat-cell>
+</ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator [length]="totalCount" [pageSize]="pageEvent.pageSize" [pageSizeOptions]="[5, 10, 20]" (page)="onPaginateChange($event)" showFirstLastButtons></mat-paginator>
+
+</div>

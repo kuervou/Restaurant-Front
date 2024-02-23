@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div style="background-color: #D3D7D1;">
+      <!-- ... -->
+      <div class="payment-options">
+        <div class="payment-label-input">
+          <label>Monto:</label>
+          <mat-form-field appearance="fill" class="input-field">
+            <input matInput formControlName="monto" style="color: green;">
+          </mat-form-field>
+        </div>
+        <div class="payment-label-input">
+          <label>Observacion:</label>
+          <mat-form-field appearance="fill" class="input-field">
+            <input matInput formControlName="observacion">
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-dialog-actions class="dialog-actions">
+        <button mat-button type="button" style="justify-content: center;" (click)="onCancel()">Cancelar</button>
+        <button mat-button type="submit" color="primary">Confirmar</button>
+      </mat-dialog-actions>
+    </div>
+  </form>
+  

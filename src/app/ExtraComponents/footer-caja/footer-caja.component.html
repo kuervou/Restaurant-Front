@@ -1,0 +1,14 @@
+<div class="caja-container" fxLayout="row" fxLayoutAlign="space-between center" style="padding-left: 1%; padding-right: 1%;">
+    <mat-card class="caja-total" >
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <span (click)="openHistorialModal()" >CAJA ${{cajaTotal}}</span>
+        <button mat-icon-button style="background-color: #F96464; color: #FFFFFF; margin-left: 10px;" (click)="openRetiroModal()">
+          <mat-icon>remove</mat-icon>
+        </button>
+        <button mat-icon-button style="background-color: #4CA78E; color: #FFFFFF; margin-left: 10px;" (click)="openIngresoModal()">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </mat-card>
+    <span class="caja-total" style="cursor: pointer;" (click)="openDisponibilidadModal()">Mesas: {{libreCount}} / {{totalCount}} Ocupación: {{ ocupacionLocal }}</span> 
+  </div>

@@ -1,0 +1,109 @@
+<div style="background-color: #D3D7D1; height: 100%; padding-bottom: 2rem;">
+
+  <div style="padding-top: 1rem; padding-left: 1rem; padding-bottom: 1rem;">
+    <button mat-button class="back-button" style="font-size: 1.5rem ;">
+        <mat-icon>arrow_back</mat-icon> Volver
+    </button>
+</div>
+  
+    <div class="top-section">
+      <mat-form-field appearance="fill" class="search">
+        <mat-label>Buscar</mat-label>
+        <input matInput (input)="searchMenuItems()" [(ngModel)]="searchTerm">
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Cliente Preferencial</mat-label>
+        <mat-select [(value)]="clienteSeleccionado">
+          <mat-option *ngFor="let cliente of clientesPreferenciales" [value]="cliente">
+            {{ cliente.nombre }} {{ cliente.apellido }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+</div>
+  <div class="content-section">
+    <div class="tabla">
+      <mat-table [dataSource]="dataSource">
+
+        <!-- Nombre Column -->
+        <ng-container matColumnDef="bebida">
+          <mat-header-cell *matHeaderCellDef> Bebida </mat-header-cell>
+          <mat-cell *matCellDef="let item"> {{item.nombre}} </mat-cell>
+        </ng-container>
+
+        <!-- Categoría Column -->
+        <ng-container matColumnDef="precio">
+          <mat-header-cell *matHeaderCellDef> Precio </mat-header-cell>
+          <mat-cell *matCellDef="let item"> {{item.precio}} </mat-cell>
+        </ng-container>
+
+        <!-- Acciones Column -->
+        <ng-container matColumnDef="cantidad">
+          <mat-header-cell *matHeaderCellDef> Cantidad </mat-header-cell>
+          <mat-cell *matCellDef="let item">
+            <div class="option-buttons">
+              <button mat-icon-button class="remove" (click)="decreaseQuantity(item.id)">
+                <mat-icon class="material-symbols-outlined">remove</mat-icon>
+            </button>
+            <input [(ngModel)]="selectedItems[item.id]" type="number" class="cantidad" placeholder="0">
+            <button mat-icon-button class="add" (click)="increaseQuantity(item.id)">
+                <mat-icon class="material-symbols-outlined">add</mat-icon>
+            </button>
+            </div>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
+    </div>
+
+    <div class="resumen">
+      <mat-dialog-content>
+        <h1>Resumen de la Orden</h1>
+        <div class="order-details">
+          <!-- Columna izquierda: Nro Mesa, Fecha -->
+          <div class="detail-column">
+            <span><strong>Usuario :</strong> {{ empleadoNombre }}</span>
+            <span *ngIf="clienteSeleccionado"><strong>Cliente preferencial:</strong> {{ clienteSeleccionado.nombre }} {{ clienteSeleccionado.apellido }} </span>
+          </div>
+        
+          <!-- Columna derecha: Mozo, Cliente, Entregado en mesa y Cobrado -->
+          <div class="detail-column">
+            <span><strong>Hora</strong> {{ horaActual }}</span>
+          </div>
+        </div>
+        
+        <div class="div-resumen">
+          <table style="width: 100%; height: 100%;">
+            <tr>
+              <td>Cant</td>
+              <td>Producto</td>
+              <td>$ por unidad</td>
+              <td>$total</td>
+            </tr>
+            <tr *ngFor="let item of dataSource">
+              <ng-container *ngIf="selectedItems[item.id] && selectedItems[item.id] > 0">
+                  <td>{{ selectedItems[item.id] }}</td>
+                  <td>{{ item.nombre }}</td>
+                  <td>{{ item.precio }}</td>
+                  <td>{{ item.precio * selectedItems[item.id] }}</td>
+              </ng-container>
+          </tr>
+          
+          </table>
+          <mat-divider></mat-divider>
+          <mat-label style="display:flex; justify-content:flex-end; padding-right: 1rem;">
+            TOTAL: ${{ getTotal() }}
+        </mat-label>
+        
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-actions class="dialog-actions">
+        <button mat-button color="primary" (click)="onConfirmar()">Confirmar</button>
+    </mat-dialog-actions>    
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<form [formGroup]="OrdenForm" class="form-container" (ngSubmit)="onSubmit()">
+  <div class="form-field">
+    <mat-form-field appearance="fill" class="half-width">
+      <mat-label>Nro Mesa</mat-label>
+      <mat-select formControlName="nroMesa" multiple>
+        <mat-option *ngFor="let mesa of mesas" [value]="mesa.id">
+          {{ mesa.nroMesa }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="form-field">
+    <mat-label>Cantidad de comensales</mat-label>
+    <input
+      matInput
+      placeholder="Cantidad"
+      type="number"
+      formControlName="cantComensales"
+      [min]="0"
+      [max]="ocupacionLocal"
+      [(ngModel)]="ordenFormValues.cantComensales"
+      (ngModelChange)="validateCantComensales($event)"
+    />
+  </div>
+
+  <div class="form-field">
+    <mat-form-field appearance="fill" class="half-width">
+      <mat-label>Cliente Preferencial</mat-label>
+      <mat-select formControlName="clientePreferencial" placeholder="Seleccione si aplica">
+        <mat-option>None</mat-option> <!-- Opción para deseleccionar -->
+        <mat-option *ngFor="let cliente of clientes" [value]="cliente.id">
+          {{ cliente.nombre }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="form-field">
+    <mat-label>Nombre del Cliente</mat-label>
+    <input
+      matInput
+      placeholder="Nombre"
+      type="text"
+      formControlName="nombreCliente"
+    />
+  </div>
+
+  <div class="button-container">
+    <button mat-raised-button color="warn" id="cancelar" (click)="onCancel()">
+      Cancelar
+    </button>
+    <button mat-raised-button color="primary" id="confirmar">Continuar</button>
+  </div>
+</form>

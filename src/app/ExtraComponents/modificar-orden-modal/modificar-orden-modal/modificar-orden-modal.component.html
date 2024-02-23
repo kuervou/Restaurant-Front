@@ -1,0 +1,42 @@
+<div class="button-container">
+    <button class="add-order-button" (click)="finalizarOrden()">Finalizar Orden</button>
+    <button mat-icon-button class="history-button"><mat-icon>history</mat-icon></button>
+</div>
+<div class="container">
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let grupo of grupos" color="primary">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{ grupo.nombre }}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            
+            <!-- Iteración para los items de este grupo -->
+            <div class="option" *ngFor="let item of itemsPorGrupo[grupo.id]"> 
+                <div class="option-content">
+                    <p>{{ item.nombre }}</p>
+                </div>
+                <div class="option-buttons">
+                    <!-- Botón existente para disminuir la cantidad -->
+                    <button mat-icon-button class="remove" (click)="disminuirCantidad(item)">
+                      <mat-icon class="material-symbols-outlined">
+                        remove
+                      </mat-icon>
+                    </button>
+                  
+                    <!-- Campo de entrada para la cantidad -->
+                    <input type="number" class="cantidad" placeholder="0" [(ngModel)]="cantidades[item.id]">
+                  
+                    <!-- Botón existente para aumentar la cantidad -->
+                    <button mat-icon-button class="add" (click)="aumentarCantidad(item)">
+                      <mat-icon class="material-symbols-outlined">
+                        add
+                      </mat-icon>
+                    </button>
+                </div>
+                
+            </div>
+    
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

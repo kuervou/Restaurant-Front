@@ -1,0 +1,8 @@
+<mat-card class="modal">
+  <h1 class="modal-title">MESA {{ data.mesa.nroMesa }}</h1>
+  <h1 class="modal-message">Desea liberar la mesa {{ data.mesa.nroMesa }}</h1>
+  <div class="modal-buttons">
+    <button mat-raised-button class="modal-button" (click)="onCancel()" id="volver">Volver</button>
+    <button mat-raised-button class="modal-button" (click)="onSubmit()" id="confirmar">Confirmar</button>
+  </div>
+</mat-card>

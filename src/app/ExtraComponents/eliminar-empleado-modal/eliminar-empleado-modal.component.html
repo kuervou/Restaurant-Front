@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Eliminar Empleado</h2>
+
+<mat-dialog-content>
+  ¿Estás seguro de que quieres eliminar a {{data.empleado.nombre}}?
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="cancelar()">Cancelar</button>
+  <button mat-button color="warn" (click)="onConfirm()">Eliminar</button>
+</mat-dialog-actions>

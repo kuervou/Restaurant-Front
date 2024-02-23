@@ -1,0 +1,107 @@
+.green-card {
+  background-color: #7D9A93;
+  padding-left: 3.125rem;
+  padding-right: 3.125rem; /* 50px convertido a rem */
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  border-radius: 1.25rem; /* 20px convertido a rem */
+}
+/* Contenedor flex para las tarjetas de órdenes */
+.orders-flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  background-color: #A9A9A9;
+}
+
+/* Estilo para la tarjeta de orden */
+.order-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.625rem; /* 10px convertido a rem */
+  margin-left: 0.3125rem; /* 5px convertido a rem */
+  margin-right: 0.625rem; /* 10px convertido a rem */
+  margin-bottom: 0.625rem; /* 10px convertido a rem */
+  width: 15rem; /* 240px convertido a rem */
+  height: 40.625rem; /* 650px convertido a rem */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: #F4F4F4;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+  .order-card {
+    width: 11.25rem; /* 180px convertido a rem */
+    height: 34.375rem; /* 550px convertido a rem */
+  }
+}
+/* Estilo para el encabezado */
+.order-header {
+  border-top-left-radius: 0.625rem; /* 10px convertido a rem */
+  border-top-right-radius: 0.625rem; /* 10px convertido a rem */
+  background-color: #FFD686;
+  padding: 0.625rem; /* 10px convertido a rem */
+  font-weight: bold;
+}
+
+/* Estilo para la información de la orden */
+.order-info {
+  padding: 0.625rem; /* 10px convertido a rem */
+  flex-grow: 1;
+}
+
+/* Estilo para los elementos de la orden */
+.order-items {
+  padding: 0.3125rem; /* 5px convertido a rem */
+  flex-grow: 1;
+}
+
+/* Estilo para el total de la orden */
+.order-total {
+  background-color: #EEE;
+  padding: 0.625rem; /* 10px convertido a rem */
+  font-weight: bold;
+  text-align: right;
+}
+
+/* Estilo para las acciones */
+.order-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.625rem; /* 10px convertido a rem */
+}
+
+/* Estilo para los botones */
+.order-actions button {
+  margin: 0 0.3125rem; /* 5px convertido a rem */
+}
+.big-icon {
+  font-size: 1.25rem !important; /* 20px convertido a rem */
+  vertical-align: middle !important;
+}
+
+.mat-fab {
+  z-index: 1000; /* Se mantiene, el z-index no es relativo al tamaño de fuente */
+}
+
+.total-pago-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilos para las celdas de la tabla */
+.table th,
+.table td {
+    text-align: center;
+    vertical-align: middle;
+    /* Resto de tus estilos */
+}
+
+/* Si necesitas ajustar el encabezado de la tabla específicamente */
+.table thead th {
+    text-align: center;
+    vertical-align: middle;
+    /* Resto de tus estilos para el encabezado */
+}

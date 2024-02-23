@@ -1,0 +1,46 @@
+<div style="background-color: #A9A9A9; height: 100%;">
+    <div class="header">
+        <button mat-button class="back-button" style="margin-left: 1rem; margin-top: 1rem;" (click)="closeModal()">
+            <mat-icon>arrow_back</mat-icon> Volver
+        </button>
+    </div>
+    <div class="container">
+
+        <mat-table [dataSource]="dataSource">
+
+            <!-- Nombre Column -->
+            <ng-container matColumnDef="tipo">
+                <mat-header-cell *matHeaderCellDef> Tipo </mat-header-cell>
+                <mat-cell *matCellDef="let item"> {{item.tipo}} </mat-cell>
+            </ng-container>
+
+            <!-- Rol Column -->
+            <ng-container matColumnDef="total">
+                <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
+                <mat-cell *matCellDef="let item"> {{item.total}} </mat-cell>
+            </ng-container>
+
+            <!-- Contacto Column -->
+            <ng-container matColumnDef="observacion">
+                <mat-header-cell *matHeaderCellDef> Observacion</mat-header-cell>
+                <mat-cell *matCellDef="let item"> {{item.observacion}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="fecha">
+                <mat-header-cell *matHeaderCellDef> Fecha</mat-header-cell>
+                <mat-cell *matCellDef="let item"> {{item.fecha}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="hora">
+                <mat-header-cell *matHeaderCellDef> Hora</mat-header-cell>
+                <mat-cell *matCellDef="let item"> {{item.hora}} </mat-cell>
+            </ng-container>
+
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator [length]="totalCount" [pageSize]="pageEvent.pageSize" [pageSizeOptions]="[5, 10, 20]" (page)="onPaginateChange($event)" showFirstLastButtons></mat-paginator>
+
+    </div>
+</div>

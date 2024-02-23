@@ -1,0 +1,121 @@
+mat-expansion-panel-header {
+    justify-content: space-between;
+  }
+  mat-toolbar {
+    display: flex;
+    align-items: center; // Centrado vertical
+    .logo {
+      width: 10rem; // Se mantiene si ya está en rem
+      height: 11rem; // Se mantiene si ya está en rem
+      margin-right: 1rem; // Se mantiene si ya está en rem
+    }
+    .texts {
+      display: flex;
+      flex-direction: column; // Alineación vertical de los textos
+      align-items: center;
+      color: #1B4338;
+      .main-text {
+        font-size: 2rem; // Convertido de em a rem para mantener la coherencia
+        margin: 0; // Remueve márgenes adicionales
+      }
+      .subtitle {
+        font-size: 1rem; // Se mantiene si ya está en rem
+        margin-top: 0.3125rem; // 5px convertido a rem
+      }
+    }
+  }
+  
+  .menu-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #E0E0E0; // Los bordes suelen mantenerse en px
+    padding: 0.9375rem 0; // 15px convertido a rem
+  
+    .item-image {
+      width: 6rem; // Se mantiene si ya está en rem
+      height: 5rem; // Se mantiene si ya está en rem
+      margin-right: 1rem; // Se mantiene si ya está en rem
+    }
+  
+    .item-details {
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      .item-text {
+        display: flex;
+        flex-direction: row; // Cambiado de columna a fila
+        align-items: center; // Alineación vertical de los elementos en la fila
+        .item-title {
+          margin-left: 0.625rem; // 10px convertido a rem
+          font-size: 1.2rem; // Se mantiene si ya está en rem
+          font-weight: bold;
+          margin-bottom: 0.3125rem; // 5px convertido a rem
+        }
+  
+        .item-count {
+          background-color: #D1F4EB;
+          color: #273B4A;
+          border-radius: 50%; // Se mantiene, ya que es una forma geométrica
+          padding: 0.3125rem 0.625rem; // 5px y 10px convertidos a rem
+          font-weight: bold;
+          z-index: 1;
+          margin-right: 0.3125rem; // 5px convertido a rem
+        }
+      }
+  
+      .item-price-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+  
+        .item-price {
+          margin-right: 0.625rem; // 10px convertido a rem
+          font-size: 1.5rem; // Se mantiene si ya está en rem
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  
+  .container-button {
+    position: fixed;
+    bottom: 0.5rem; // Se mantiene si ya está en rem
+    left: 50%; // Se mantiene, ya que es un valor porcentual
+    transform: translateX(-50%); // Se mantiene, ya que es una transformación
+    display: flex;
+    width: 80%; // Se mantiene, ya que es un valor porcentual
+    flex-direction: column;
+    align-items: center;
+  
+    .add-button {
+      width: 100%; // Se mantiene, ya que es relativo al contenedor padre
+      background-color: #2E8B57;
+      color: white;
+    }
+  }
+  
+  mat-accordion {
+    display: flex;
+    flex-direction: column;
+    flex: 1; // Se mantiene, ya que es una unidad de flex
+  }
+  
+  .observaciones-container {
+    margin-top: 1rem; // Se mantiene si ya está en rem
+    padding: 0.5rem; // Se mantiene si ya está en rem
+    background-color: #e0f2f1; // No requiere conversión
+    border-radius: 0.5rem; // 8px convertido a rem
+  }
+  
+  .observaciones-title {
+    font-weight: bold; // No requiere conversión
+  }
+  
+  .observaciones-text {
+    display: block; // Se mantiene, ya que es una propiedad de display
+    margin-top: 0.5rem; // Se mantiene si ya está en rem
+  }
+  

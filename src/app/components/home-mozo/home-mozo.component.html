@@ -1,0 +1,18 @@
+<app-header></app-header>
+<div class="button-container">
+    <button class="add-order-button" (click)="openOrdenModal()">Añadir Orden</button>
+    <button mat-icon-button class="history-button"><mat-icon>history</mat-icon></button>
+  </div>
+  <div class="container">
+    <h3>Mesas Ocupadas:</h3>
+    <div class="table-box" *ngFor="let mesa of mesas">
+      <div class="content">
+        <h2>Mesa {{ mesa.nroMesa }}</h2> <!-- Asegúrate de usar la propiedad correcta de la mesa -->
+        <div class="buttons">
+          <button class="button button-2" (click)="navigateTo('ordenesmesa',mesa.id)"><mat-icon>menu</mat-icon></button>
+          <button class="button button-3" (click)="openDialog(mesa)"><mat-icon>done</mat-icon></button>
+        </div>
+      </div>
+    </div>
+</div>
+

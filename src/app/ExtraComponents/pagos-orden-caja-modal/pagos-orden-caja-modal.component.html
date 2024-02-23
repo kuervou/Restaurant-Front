@@ -1,0 +1,36 @@
+<mat-dialog-content>
+    <h1>Resumen de la Orden</h1>
+    <div class="div-resumen">
+      <table style="width: 100%; height: 100%;">
+        <tr>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Total</th>
+          <th>Metodo Pago</th>
+          <th>Empleado</th>
+          <th>Eliminar</th>
+        </tr>
+        <tr *ngFor="let itemPago of data.estadoPagos.infoPagos">
+          <td>{{ itemPago.fecha | date: 'shortDate' }}</td>
+          <td>{{ (itemPago.fecha + 'T' + itemPago.hora) | date: 'shortTime' }}</td>
+          <td>{{ itemPago.total | currency }}</td>
+          <td>{{ itemPago.metodoPago }}</td>
+          <td>{{ empleados[itemPago.empleadoId].nombre }}</td>
+          <td>
+            <!-- Botón para llamar a la función cancelarPago -->
+            <button class="btn-action" (click)="cancelarPago(itemPago.id)">
+              <mat-icon>remove</mat-icon> <!-- Icono de Material Icons -->
+            </button>
+          </td>
+        </tr>
+      </table>
+      
+      <div class="div-obs">
+        <mat-divider></mat-divider>
+        <mat-label style="display:flex; justify-content:flex-end; padding-right: 1rem;">
+          TOTAL: {{ data.estadoPagos.totalOrden| currency }} PAGO: {{ data.estadoPagos.totalPagado | currency }}:
+        </mat-label>
+      </div>
+    </div>
+  </mat-dialog-content>
+  

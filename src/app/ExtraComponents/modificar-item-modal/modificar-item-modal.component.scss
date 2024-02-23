@@ -1,0 +1,57 @@
+// Estilos para el modal
+
+.dialog-content {
+    padding: 1.25rem; // 20px
+  
+    mat-form-field {
+      margin-bottom: 1.25rem; // 20px
+    }
+  
+    .full-width {
+      width: 100%;
+    }
+  
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem; // 20px
+  
+      .half-width {
+        width: 48%; // Mantengo este en porcentaje porque ya es relativo al contenedor.
+      }
+    }
+  
+    .cost-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  
+      .radio-btn {
+        margin-right: 0.625rem; // 10px
+      }
+  
+      .cost-input {
+        flex-grow: 1;
+        margin-left: 1.25rem; // 20px
+      }
+    }
+  }
+  
+  .dialog-actions {
+    padding: 0.625rem 1.25rem; // 10px 20px
+    display: flex;
+    justify-content: flex-end;
+  
+    button {
+      margin-left: 0.625rem; // 10px
+      height: 2.25rem; // 36px
+    }
+  }
+  
+  // Añadiendo estilos para los íconos dentro de las etiquetas
+  mat-label mat-icon {
+    vertical-align: middle; 
+    margin-right: 0.3125rem; // 5px
+  }
+  

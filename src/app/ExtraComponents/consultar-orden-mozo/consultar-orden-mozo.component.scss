@@ -1,0 +1,21 @@
+/* Estilo para centrar el contenido de las celdas de la tabla */
+.table-cell-centered {
+    text-align: center;
+  }
+  
+  /* Estilo para centrar el botón horizontalmente */
+  .button-centered {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .mat-dialog-actions {
+    justify-content: center; /* Esto centra los botones dentro de mat-dialog-actions */
+  }
+  
+  /* Si deseas que los td tengan todo su contenido centrado, no sólo el texto */
+  td {
+    text-align: center;
+    vertical-align: middle; /* Esto centra verticalmente el contenido de la celda */
+  }
+  

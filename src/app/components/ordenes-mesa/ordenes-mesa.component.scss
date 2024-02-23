@@ -1,0 +1,133 @@
+/* Estilos para los botones "Añadir Orden" y "Ver Ordenes Antiguas" */ 
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.625rem; /* 10px convertido a rem */
+}
+
+.history-button {
+    margin-right: 5%; /* Se mantiene, es un valor porcentual */
+}  
+
+.add-order-button {
+    background-color: #4CA78E;
+    color: white;
+    border: none;
+    border-radius: 0.625rem; /* 10px convertido a rem */
+    padding: 0.625rem 1.25rem; /* 10px y 20px convertidos a rem */
+    cursor: pointer;
+    margin-bottom: 0.625rem; /* 10px convertido a rem */
+    margin-left: 3vh; /* Se mantiene, es un valor relativo al alto de la ventana */
+}
+
+.add-order-button:hover {
+    background-color: #347763; /* No requiere conversión */
+}
+
+/* Container con el fondo verde */ 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #1B4338;
+    padding-top: 2.5vh; /* Se mantiene */
+    padding-bottom: 10vh; /* Se mantiene */
+    max-width: 90vw; /* Se mantiene */
+    min-height: 125vw; /* Se mantiene */
+    max-height: 125vw; /* Se mantiene */
+    margin: 0 auto; /* No requiere conversión */
+    border-radius: 1.25rem; /* 20px convertido a rem */
+    overflow-x: hidden; /* No requiere conversión */
+    overflow-y: auto; /* No requiere conversión */
+}
+
+h3 {
+    margin: 0;
+    color: white; /* No requiere conversión */
+    align-self: flex-start; /* No requiere conversión */
+    padding-bottom: 2.5vh; /* Se mantiene */
+}
+
+.table-box {
+    padding: 2%; /* Se mantiene, es un valor porcentual */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* No requiere conversión */
+    margin-bottom: 5%; /* Se mantiene, es un valor porcentual */
+}
+
+.content {
+    background-color: #E8FFF9;
+    border-radius: 0.625rem; /* 10px convertido a rem */
+    margin-bottom: 2.5%; /* Se mantiene, es un valor porcentual */
+    padding: 2%; /* Se mantiene, es un valor porcentual */
+    box-sizing: border-box; /* No requiere conversión */
+    max-width: calc(100% - 4%); /* Se mantiene, calcula el porcentaje */
+    max-height: calc(100% - 5%); /* Se mantiene, calcula el porcentaje */
+}
+
+.order-info {
+    display: flex;
+    align-items: center;
+    width: 100%; /* No requiere conversión */
+}
+
+.order-number, .order-time {
+    width: 50%; /* No requiere conversión */
+}
+
+.order-time p {
+    margin: 0; /* No requiere conversión */
+}
+
+.table-number {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0; /* No requiere conversión */
+    width: 100%; /* No requiere conversión */
+}
+
+.buttons {
+    display: flex;
+    gap: 0.625rem; /* 10px convertido a rem */
+    align-items: center;
+}
+
+.button {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.875rem; /* 30px convertido a rem */
+    height: 1.875rem; /* 30px convertido a rem */
+    border-radius: 0.625rem; /* 10px convertido a rem */
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    font-size: 0.625rem; /* 10px convertido a rem, aunque esto es muy pequeño para un tamaño de fuente, verifica si es lo que quieres */
+    padding-left: 3%; /* Se mantiene, es un valor porcentual */
+}
+
+    /* Colores para los botones */
+
+    .button:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .button-2 {
+      background-color: #57BCDC !important;
+      color: white;
+    }
+
+    .button-3 {
+      background-color: #4CA78E !important;
+      color: white;
+    }
+
+    .button-1 {
+      background-color: #E98383 !important;
+      color: white;
+    }

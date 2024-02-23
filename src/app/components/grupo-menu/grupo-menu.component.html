@@ -1,0 +1,39 @@
+<div class="container">
+    <mat-toolbar class="custom-toolbar">
+      <button mat-icon-button (click)="navigateToHome()">
+        <mat-icon class="back-arrow">arrow_back</mat-icon>
+      </button>
+        <span class="spacer"></span> <!-- Espaciador para empujar el logo hacia la derecha -->
+        <img src="../../../assets/LogoSinFondo.png" alt="Logo" class="logo">
+    </mat-toolbar>
+
+    <br>
+    <mat-accordion>
+        <mat-expansion-panel #grupoPanel expanded (closed)="onPanelClosed(grupoPanel)" hideToggle>
+            <mat-expansion-panel-header class="header-panel" *ngIf="grupo">
+                {{grupo.nombre || 'Vacio'}}
+            </mat-expansion-panel-header>
+            <mat-divider></mat-divider>
+            <div *ngFor="let item of itemsDelGrupo" class="menu-item" (click)="openModal(item)">
+                <!-- Usamos la propiedad 'imagen' del item para mostrar la imagen -->
+                <img [src]="'data:image/png;base64,' + item.imagen" alt="{{ item.nombre }}" class="item-image">
+                <div class="item-details">
+                  <div class="item-text">
+                    <span class="item-title">{{ item.nombre }}</span>
+                    <span class="item-description">{{ item.descripcion }}</span>
+                  </div>
+                  <div class="item-price-container">
+                    <span class="item-price">${{ item.precio }}</span>
+                    <!-- Si tienes un contador o cantidad, aquí lo puedes mostrar -->
+                    <!-- <span class="item-count">{{ item.cantidad }}</span> -->
+                  </div>
+                </div>
+              </div>
+                         
+            <!-- Repite para los otros ítems... -->
+        </mat-expansion-panel>
+    </mat-accordion>
+    <div class="container-button" *ngIf="itemsMenu.length > 0">
+      <button mat-raised-button class="add-button" (click)="openResumenOrdenDialog()">Ver orden - ${{ totalOrden }}</button>
+    </div>
+</div>

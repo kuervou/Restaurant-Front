@@ -1,0 +1,45 @@
+<div style="background-color: #7D9A93; height: 100vh; width: 100%; display: flex; flex-direction: column;">
+    <mat-toolbar style="background-color: #D1F4EB; height: auto; font-family: PaytoneOne;">
+        <img src="../../../assets/LogoSinFondo.png" alt="Logo" class="logo">
+
+        <!-- Div para envolver los textos -->
+        <div class="texts">
+            <span class="main-text">Hacé tu pedido</span>
+            <span class="subtitle">Y lo llevamos a tu mesa</span>
+        </div>
+    </mat-toolbar>
+    <br>
+    <mat-accordion style="flex: 1; overflow-y: auto;">
+        <mat-expansion-panel #resumenPanel expanded (closed)="onPanelClosed(resumenPanel)" hideToggle style="flex: 1; display: flex; flex-direction: column;">
+            <mat-expansion-panel-header style="font-weight: bold; font-size: 0.9rem;">
+                Resumen de orden:
+            </mat-expansion-panel-header>
+          
+            <!-- Aquí iteramos sobre cada itemMenu para listarlos -->
+            <div *ngFor="let item of data.itemsMenu" class="menu-item">
+                <div class="item-details">
+                    <div class="item-text">
+                        <span class="item-count">{{ item.cantidad }}</span>
+                        <span class="item-title">{{ item.nombre }}</span> <!-- Asumiendo que 'nombre' es una propiedad de 'item' -->
+                    </div>
+                    <div class="item-price-container">
+                        <span class="item-price">${{ item.precio }}</span>
+                    </div>
+                </div>
+            </div>
+          
+            <!-- Después de listar los items y antes del botón de confirmar orden -->
+            <div *ngIf="data.observaciones" class="observaciones-container">
+                <span class="observaciones-title">Observaciones:</span>
+                <div *ngFor="let observacion of observacionesSeparadas" class="observaciones-text">
+                  {{ observacion }}
+                </div>
+              </div>
+              
+              <div class="container-button">
+                <button mat-raised-button class="add-button" (click)="openDialog()">Confirmar orden - ${{ data.totalOrden }}</button>
+              </div>
+  
+          </mat-expansion-panel>
+    </mat-accordion>
+</div>

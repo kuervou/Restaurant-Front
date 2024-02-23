@@ -1,0 +1,20 @@
+<div class="dialog-container">
+    <h2 mat-dialog-title style="font-weight: bold;">Datos de la orden</h2>
+    <mat-divider class="full-divider"></mat-divider>
+    <mat-dialog-content>
+        <mat-form-field appearance="outline" class="full-width">
+        <mat-label style="font-weight: bold;">Nombre del cliente</mat-label>
+        <input matInput placeholder="Nombre del cliente" [(ngModel)]="nombreCliente" style="font-weight: bold;">
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label style="font-weight: bold;">Cantidad de comensales</mat-label>
+        <input matInput placeholder="Cantidad de Comensales" [(ngModel)]="cantidadComensales" type="number" min="0" max="50" style="font-weight: bold;">
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-divider class="full-divider"></mat-divider>
+    <mat-dialog-actions align="end">
+      <button mat-flat-button color="primary" mat-dialog-close style="font-weight: bold;" (click)="crearOrden()">CONFIRMAR</button>
+    </mat-dialog-actions>
+  </div>
+  

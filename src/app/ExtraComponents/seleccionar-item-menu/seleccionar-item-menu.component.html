@@ -1,0 +1,27 @@
+<div class="modal-container">
+    <!-- Imagen del producto -->
+    <img [src]="'data:image/png;base64,' + data.item.imagen" alt="{{ data.item.nombre }}" class="product-image">
+  
+    <!-- Título y Descripción -->
+    <h2 class="product-title">{{ data.item.nombre }}</h2>
+    <span class="product-description">{{ data.item.descripcion }}</span>
+    <span class="product-price">${{ data.item.precio }}</span>
+  
+    <!-- Selector de Cantidad -->
+    <div class="quantity-selector">
+      <button mat-icon-button style="background-color:#FFD1D1;" (click)="decrementarCantidad()">
+        <mat-icon>remove_circle</mat-icon>
+      </button>
+      <span class="quantity">Cantidad: {{ cantidad }}</span>
+      <button mat-icon-button (click)="incrementarCantidad()">
+        <mat-icon>add_circle</mat-icon>
+      </button>
+    </div>  
+  
+    <!-- Campo de observaciones -->
+    <textarea matInput placeholder="OBSERVACIONES:" [(ngModel)]="observacionesTemp" class="observations"></textarea>
+  
+    <!-- Botón para agregar a la orden -->
+    <button mat-raised-button class="add-button" (click)="agregarALaOrden()">Agregar a la orden - ${{ getTotal() }}</button>
+  </div>
+  

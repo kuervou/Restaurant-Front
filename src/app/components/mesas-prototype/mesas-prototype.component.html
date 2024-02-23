@@ -1,0 +1,21 @@
+<div>
+    <h1>Lista de Mesaaaaas</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Número de Mesa</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mesa of mesas">
+          <td>{{mesa.numeroDeMesa}}</td>
+          <td>{{mesa.estaLibre == '1' ? 'Libre' : 'Ocupada'}}</td>
+          <td>
+            <button (click)="cambiarEstadoMesa(mesa.id, mesa.estaLibre === 1, mesa.numeroDeMesa)">Cambiar Estado</button>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

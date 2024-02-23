@@ -1,0 +1,58 @@
+.modal-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    .product-image {
+      width: 80%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+  
+    .product-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  
+    .product-description {
+      font-size: 18px;
+      color: gray;
+      margin-bottom: 10px;
+    }
+  
+    .product-price {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+  
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+  
+      .quantity {
+        margin: 0 20px;
+      }
+  
+      button {
+        background-color: #D1F4EB;
+        color: #333;
+      }
+    }
+  
+    .observations {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 20px;
+    }
+  
+    .add-button {
+      width: 100%;
+      background-color: #2E8B57;
+      color: white;
+    }
+  }
+  

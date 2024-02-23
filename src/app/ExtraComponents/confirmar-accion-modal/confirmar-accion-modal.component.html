@@ -1,0 +1,25 @@
+<mat-dialog-content class="dialog-content">
+  <!-- Radio Buttons -->
+  <mat-radio-group aria-label="Forma de venta" [(ngModel)]="seleccionPorUnidad"> 
+    <mat-radio-button color="primary" [value]="false">Trago</mat-radio-button>
+    <mat-radio-button color="primary" [value]="true">Unidad</mat-radio-button>
+  </mat-radio-group>
+  
+
+  <!-- Chips y Dropdown -->
+  <div class="chip-list">
+    <mat-chip-grid>
+      <mat-chip-row *ngFor="let item of itemMenuDetails?.ItemInventarios">
+        {{ item.nombre }}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    </mat-chip-grid>
+  </div>
+  
+  <mat-dialog-actions class="dialog-actions">
+    <button mat-button (click)="onCancel()">Cancelar</button>
+    <button mat-button  color="primary" (click)="onConfirm()">Confirmar</button>
+  </mat-dialog-actions>
+  

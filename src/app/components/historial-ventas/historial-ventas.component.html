@@ -1,0 +1,123 @@
+<app-header></app-header>
+<div class="container">
+
+  <div class="header">
+    <button mat-button class="back-button" (click)="navigateTo('homeadmin')">
+      <mat-icon>arrow_back</mat-icon> Volver
+    </button>
+
+    
+<div class="actions">
+  <mat-form-field appearance="fill" class="filter">
+    <mat-label>Filtro</mat-label>
+    <mat-select [(value)]="filterField" (selectionChange)="onFilterChange($event)">
+      <mat-option value="">Todos</mat-option>
+      <mat-option value="estado">Estado</mat-option>
+      <mat-option value="fecha">Fecha</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <!-- Campo de búsqueda que se alterna entre dropdown y date picker -->
+  <ng-container *ngIf="filterField === 'fecha'">
+    <mat-form-field appearance="fill" class="search">
+      <mat-label>Buscar por fecha</mat-label>
+      <input matInput [matDatepicker]="picker" (dateChange)="onFilterValueChange($event)">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </ng-container>
+  
+  <ng-container *ngIf="filterField === 'estado'">
+    <mat-form-field appearance="fill" class="search">
+      <mat-label>Estado</mat-label>
+      <mat-select (selectionChange)="onFilterValueChange($event)">
+        <mat-option *ngFor="let estado of ESTADOS | keyvalue" [value]="estado.value">
+          {{ estado.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </ng-container>
+  
+  <ng-container *ngIf="filterField !== 'fecha' && filterField !== 'estado'">
+    <mat-form-field appearance="fill" class="search">
+      <mat-label>Buscar</mat-label>
+      <input matInput (input)="onFilterValueChange($event)">
+    </mat-form-field>
+  </ng-container>
+  <button mat-button (click)="resetFilters()" class="add-button">Reiniciar Filtros</button>
+</div>
+  </div>
+
+  <mat-table [dataSource]="dataSource">
+
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="nroOrden">
+      <mat-header-cell *matHeaderCellDef> Nro Orden </mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.id}} </mat-cell>
+    </ng-container>
+
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="estado">
+      <mat-header-cell *matHeaderCellDef> Estado </mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.estado}} </mat-cell>
+    </ng-container>
+
+    <!-- Categoría Column -->
+    <ng-container matColumnDef="fecha">
+      <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.fecha}} </mat-cell>
+    </ng-container>
+
+    <!-- Stock Column -->
+    <ng-container matColumnDef="hora">
+      <mat-header-cell *matHeaderCellDef> Hora </mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.hora}} </mat-cell>
+    </ng-container>
+
+    <!-- Costo Column -->
+    <ng-container matColumnDef="nroMesa">
+      <mat-header-cell *matHeaderCellDef> Nro Mesa</mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{ getMesas(item) }} </mat-cell>
+    </ng-container>
+
+    <!-- Stock Column -->
+    <ng-container matColumnDef="monto">
+      <mat-header-cell *matHeaderCellDef> Monto </mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.total}} </mat-cell>
+    </ng-container>
+
+    <!-- Stock Column -->
+    <ng-container matColumnDef="mozo">
+      <mat-header-cell *matHeaderCellDef> Mozo </mat-header-cell>
+      <mat-cell *matCellDef="let item">
+        <!-- Solo muestra el nombre y apellido si el objeto 'empleado' existe -->
+        <ng-container *ngIf="item.empleado; else noMozo">
+          {{ item.empleado.nombre }} {{ item.empleado.apellido }}
+        </ng-container>
+        <!-- Plantilla alternativa si no hay un 'empleado' asociado con la orden -->
+        <ng-template #noMozo>Autoservicio</ng-template>
+      </mat-cell>
+    </ng-container>
+
+
+    <!-- Acciones Column -->
+    <ng-container matColumnDef="acciones">
+      <mat-header-cell *matHeaderCellDef> Consultar </mat-header-cell>
+      <mat-cell *matCellDef="let item">
+        <button mat-icon-button (click)="openInfoOrdenModal(item)" style="background-color: #E8FFF9;">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator [length]="totalCount" [pageSize]="pageEvent.pageSize" [pageSizeOptions]="[5, 10, 20]"
+    (page)="onPaginateChange($event)" showFirstLastButtons>
+  </mat-paginator>
+
+
+</div>

@@ -1,0 +1,46 @@
+.order-card {
+  border: 1px solid #ccc; /* El borde suele mantenerse en px */
+  padding: 0.9375rem; /* 15px convertido a rem */
+  margin-bottom: 1.25rem; /* 20px convertido a rem */
+  background-color: #F4F4F4;
+  border-radius: 1.25rem; /* 20px convertido a rem */
+  margin-right: 0.625rem; /* 10px convertido a rem */
+}
+
+.green-card {
+  background-color: #7D9A93;
+  padding: 0.625rem; /* 10px convertido a rem */
+  border-radius: 1.25rem; /* 20px convertido a rem */
+}
+
+.mat-card {
+  border: 1px solid #ccc; /* El borde suele mantenerse en px */
+  border-radius: 1.25rem; /* 20px convertido a rem */
+}
+
+.custom-card {
+  border: 1px solid #ccc; /* El borde suele mantenerse en px */
+  padding: 0.9375rem; /* 15px convertido a rem */
+  margin-bottom: 1.25rem; /* 20px convertido a rem */
+  background-color: #F4F4F4;
+  border-radius: 1.25rem; /* 20px convertido a rem */
+  margin-right: 0.625rem; /* 10px convertido a rem */
+}
+
+.custom-title {
+  font-weight: bold;
+  font-size: 1.2rem; /* Convertido a rem */
+}
+
+.custom-info {
+  font-size: 1rem; /* Convertido a rem */
+}
+
+.custom-observation {
+  font-style: italic;
+}
+
+.mi-boton {
+  background-color: #4CA78E !important;
+  color: #000000 !important;
+}

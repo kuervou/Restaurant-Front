@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Quitar Stock de {{item.nombre}}</h2>
+
+<mat-dialog-content class="dialog-content">
+  <!-- Stock actual -->
+  <div class="stock-section">
+    <button mat-icon-button (click)="decreaseStock()">
+      <mat-icon>remove</mat-icon>
+    </button>
+
+    <mat-form-field>
+      <input matInput type="number" [(ngModel)]="currentStock">
+    </mat-form-field>
+
+    <button mat-icon-button (click)="increaseStock()" [disabled]="currentStock >= item.stock">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <div class="total-section">
+    Cantidad que se quitará: {{currentStock}}
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button color="primary" (click)="confirm()">Confirmar</button>
+</mat-dialog-actions>

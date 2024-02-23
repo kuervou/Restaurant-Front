@@ -1,0 +1,63 @@
+<div style="background-color: #D3D7D1; height: 100%;">
+    <div class="header" style="background-color: #D3D7D1; padding-top: 0.5rem;">
+        <button mat-button class="back-button" style="font-size: 2rem;" (click)="close()">
+            <mat-icon>arrow_back</mat-icon> Volver
+        </button>
+    </div>
+    <div class="orders-flex-container">
+        <div class="orders-and-notes-wrapper">
+            <div class="orders-wrapper" >
+                <!-- Aquí están tus tarjetas de orden -->
+                <mat-card fxFlex="99%" fxFlex.lt-sm="100%" class="mat-card">
+                    <div class="orders-flex-container" style="background-color: #7d9a93">
+                        <mat-card class="order-card" *ngFor="let orden of ordenes">
+                            <!-- Estado y Paga -->
+                            <mat-card-header class="order-header" [ngStyle]="getCardHeaderStyle(orden.estado)">
+                                <mat-card-title-group>
+                                    <mat-card-title>Estado: {{ orden.estado }}</mat-card-title>
+                                    <mat-card-title>Paga: {{ orden.paga ? "Sí" : "No" }}</mat-card-title>
+                                </mat-card-title-group>
+                            </mat-card-header>
+                            <mat-divider></mat-divider>
+                            <!-- Información de la orden -->
+                            <mat-card-content class="order-info">
+                                <mat-card-title>Orden nº {{ orden.id }} {{ orden.hora }}</mat-card-title>
+                                <p>
+                                    Mesa {{ getMesas(orden) }} - Mozo: {{ orden.empleado?.nombre || 'Autoservicio'}}
+                                </p>
+                                <ng-container *ngIf="orden.cliente">
+                                    <p>Cliente: {{ orden.cliente.nombre }}</p>
+                                  </ng-container>
+                                <div class="order-items">
+                                    <p *ngFor="let item of orden.items">
+                                        {{ item.cantidad }} x {{ item.itemMenu.nombre }}
+                                    </p>
+                                </div>
+                            </mat-card-content>
+                            <mat-divider></mat-divider>
+                            <mat-card-content class="order-total">
+                                <p>Total: ${{ orden.total }}</p>
+                            </mat-card-content>
+
+                            <mat-divider></mat-divider>
+
+                            <mat-card-actions class="order-actions">
+                                <button mat-raised-button
+                                    (click)="openConsultarOrden(orden)"
+                                    style="background-color: #57bcdc; text-align: center">
+                                    <mat-icon class="big-icon">info</mat-icon>
+                                </button>
+                                <button *ngIf="orden.estado !== ESTADOS.CANCELADA" mat-raised-button
+                                    style="background-color: #e98383; text-align: center"
+                                    (click)="cancelarOrden(orden.id)">
+                                    <mat-icon class="big-icon">delete</mat-icon>
+                                </button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </mat-card>
+            </div>
+
+        </div>
+    </div>
+</div>

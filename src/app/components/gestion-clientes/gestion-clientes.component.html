@@ -1,0 +1,91 @@
+<app-header></app-header>
+<div class="container">
+
+    <div class="header">
+      <button mat-button class="back-button" (click)="navigateTo('gestionusers')">
+        <mat-icon>arrow_back</mat-icon> Volver
+      </button>
+  
+      <div class="actions">
+        <mat-form-field appearance="fill" class="filter">
+          <mat-label>Filtro</mat-label>
+          <mat-select (selectionChange)="onFilterChange($event)">
+            <mat-option value="nombre">Nombre</mat-option>
+            <!-- Agregar más opciones de filtro si es necesario -->
+          </mat-select>
+        </mat-form-field>
+  
+        <!-- Campo de búsqueda dinámico -->
+        <ng-container>
+          <mat-form-field appearance="fill" class="search">
+              <mat-label>Buscar</mat-label>
+              <input matInput #searchInput (keyup)="onSearchChange(searchInput.value)">
+          </mat-form-field>
+        </ng-container>
+  
+        <button mat-raised-button class="add-button" (click)="openAddClientDialog()">
+          Agregar<br>Cliente
+      </button>
+      
+  
+      </div>
+    </div>
+  
+    <mat-table [dataSource]="dataSource">
+  
+      <!-- Nombre Column -->
+      <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let item"> {{item.nombre}} </mat-cell>
+      </ng-container>
+  
+      <!-- Rol Column -->
+      <ng-container matColumnDef="cuenta">
+        <mat-header-cell *matHeaderCellDef> Cuenta </mat-header-cell>
+        <mat-cell *matCellDef="let item"> {{item.cuenta}} </mat-cell>
+      </ng-container>
+  
+      <!-- Contacto Column -->
+      <ng-container matColumnDef="contacto">
+        <mat-header-cell *matHeaderCellDef> Contacto </mat-header-cell>
+        <mat-cell *matCellDef="let item"> {{item.telefono}} </mat-cell>
+      </ng-container>
+      <!-- Acciones Column -->
+
+  <ng-container matColumnDef="acciones">
+    <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+    <mat-cell *matCellDef="let item">
+      <!-- Botones individuales, visibles solo en pantallas grandes -->
+      <div class="actions-large-screen">
+        <button mat-icon-button (click)="openEditDialog(item)">
+          <mat-icon>edit</mat-icon>
+        </button>    
+        <button mat-icon-button (click)="eliminarCliente(item)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      
+      <!-- Botón de menú desplegable, visible solo en pantallas pequeñas -->
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="actions-small-screen">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="openEditDialog(item)">
+          <mat-icon>edit</mat-icon>
+          <span>Editar</span>
+        </button>    
+        <button mat-menu-item (click)="eliminarCliente(item)">
+          <mat-icon>delete</mat-icon>
+          <span>Eliminar</span>
+        </button>
+      </mat-menu>
+    </mat-cell>
+  </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  
+    <mat-paginator [length]="totalCount" [pageSize]="pageEvent.pageSize" [pageSizeOptions]="[5, 10, 20]" (page)="onPaginateChange($event)" showFirstLastButtons></mat-paginator>
+  
+  </div>    

@@ -1,0 +1,46 @@
+<mat-card>
+    <button mat-button class="back-button" (click)="navigateTo('estadisticas')">
+        <mat-icon>arrow_back</mat-icon> Volver
+      </button>
+    <mat-card-header>
+        <mat-card-title class="bold-title">Estadísticas de Ventas</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content style="margin-top: 1rem;">
+        <!-- Botones -->
+        <div class="button-group">
+            <button mat-raised-button (click)="updateView('HorasPico')">Horas Pico</button>
+            <button mat-raised-button (click)="updateView('Mensual')">Mensual</button>
+            <button mat-raised-button (click)="updateView('Anual')">Anual</button>
+        </div>
+
+        <!-- Label y Select -->
+        <div class="report-section">
+            <label>Reporte {{ selectedView }}</label>
+            <mat-form-field appearance="fill" *ngIf="selectedView === 'Mensual'">
+                <mat-label>Opciones</mat-label>
+                <mat-select [(value)]="selectedOption" (selectionChange)="onMonthSelect($event)">
+                    <mat-option *ngFor="let month of months" [value]="month.value">{{ month.name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" *ngIf="selectedView === 'Anual'">
+                <mat-label>Año</mat-label>
+                <mat-select [(value)]="selectedOption" (selectionChange)="onYearSelect($event)">
+                  <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            <mat-form-field appearance="fill" *ngIf="selectedView === 'HorasPico'">
+                <input matInput [matDatepicker]="picker" placeholder="Elige una fecha" (dateChange)="onDateChange($event)">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <!-- Gráfica -->
+        <div class="chart-container">
+            <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [legend]="lineChartLegend"
+                    [options]="lineChartOptions" [type]="lineChartType">
+            </canvas>
+        </div>
+    </mat-card-content>
+</mat-card>

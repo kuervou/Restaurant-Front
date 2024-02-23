@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; /* Relativo a la altura de la ventana de visualización */
+  width: 100vw; /* Relativo al ancho de la ventana de visualización */
+}
+
+.login-card {
+  width: 80vw; /* Relativo al ancho de la ventana de visualización */
+  max-width: 400px; /* Max-width en px para limitar el tamaño */
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh; /* Espaciado vertical relativo a la altura de la ventana de visualización */
+}
+
+.title {
+  font-size: 1.25rem; /* Basado en el tamaño de fuente predeterminado del navegador, asumiendo que 1rem = 16px */
+  font-weight: bold;
+  margin: 2vh 0; /* Margen vertical relativo a la altura de la ventana de visualización */
+}
+
+.input-field {
+  width: 100%; /* Toma el ancho completo de su contenedor padre */
+}
+
+.confirm-btn {
+  margin-top: 2vh; /* Margen superior relativo a la altura de la ventana de visualización */
+}

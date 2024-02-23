@@ -1,0 +1,79 @@
+.bold-title {
+  font-weight: bold;
+  /* No se requieren unidades relativas aquí */
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+
+  mat-form-field {
+      width: 100%;
+      margin-bottom: 1rem; /* Convertido a rem */
+  }
+}
+
+.stat-section {
+  display: flex;
+  flex-direction: column;
+  /* No hay márgenes o padding para convertir */
+}
+
+.stat-card {
+  margin-top: 1rem; /* Convertido a rem */
+  text-align: center;
+
+  &.total-ventas {
+      background-color: #4CA78E;
+  }
+
+  &.ordenes-procesadas {
+      background-color: #E1F180;
+  }
+
+  &.top-productos {
+      background-color: #57BCDC;
+  }
+}
+
+.stat-value {
+  font-size: 1.5rem; /* Convertido a rem para mantener la escala con respecto al tamaño de fuente base */
+  margin-top: 1rem; /* Convertido a rem */
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem; /* Convertido a rem */
+}
+
+.stat-card.top-productos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centered-title {
+  width: 100%;
+  text-align: center;
+}
+
+.centered-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centered-item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.producto-container {
+  display: flex;
+  align-items: center;
+  /* No hay márgenes o padding para convertir */
+}

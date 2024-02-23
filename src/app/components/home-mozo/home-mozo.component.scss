@@ -1,0 +1,107 @@
+/* Estilos para los botones "Añadir Orden" y "Ver Ordenes Antiguas" */ 
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.625rem; /* 10px convertido a rem */
+}
+
+.history-button {
+    margin-right: 5%; /* Se mantiene, es un valor porcentual para diseño responsivo */
+}  
+
+.add-order-button {
+    background-color: #4CA78E;
+    color: white;
+    border: none;
+    border-radius: 0.625rem; /* 10px convertido a rem */
+    padding: 0.625rem 1.25rem; /* 10px y 20px convertidos a rem */
+    cursor: pointer;
+    margin-bottom: 0.625rem; /* 10px convertido a rem */
+    margin-left: 3vh; /* Se mantiene, es un valor de viewport para diseño responsivo */
+}
+
+.add-order-button:hover {
+    background-color: #347763; /* No requiere conversión */
+}
+
+/* Estilos para listar las mesas */ 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea a la izquierda */
+    background-color: #1B4338;
+    padding-top: 2.5vh; /* Se mantiene, es un valor de viewport para diseño responsivo */
+    padding-bottom: 10vh; /* Se mantiene, es un valor de viewport para diseño responsivo */
+    max-width: 90vw; /* Se mantiene, es un valor de viewport para diseño responsivo */
+    overflow-y: auto; /* No requiere conversión */
+    max-height: 90vh; /* Se mantiene, es un valor de viewport para diseño responsivo */
+    margin: 0 auto; /* No requiere conversión */
+    border-radius: 1.25rem; /* 20px convertido a rem */
+}
+
+h3 {
+    margin: 0;
+    color: white; /* No requiere conversión */
+    align-self: flex-start; /* No requiere conversión */
+    padding-bottom: 2.5vh; /* Se mantiene, es un valor de viewport para diseño responsivo */
+}
+
+.table-box {
+    background-color: #E8FFF9;
+    padding: 2%; /* Se mantiene, es un valor porcentual para diseño responsivo */
+    border-radius: 0.625rem; /* 10px convertido a rem */
+    margin-bottom: 2vh; /* Se mantiene, es un valor de viewport para diseño responsivo */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* No requiere conversión */
+    box-sizing: border-box; /* No requiere conversión */
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; /* No requiere conversión */
+    margin: 0.625rem; /* 10px convertido a rem */
+}
+
+h2 {
+    margin: 0; /* No requiere conversión */
+}
+
+.buttons {
+    display: flex;
+    gap: 0.625rem; /* 10px convertido a rem */
+    margin-left: auto; /* No requiere conversión */
+}
+
+.button {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.875rem; /* 30px convertido a rem */
+    height: 1.875rem; /* 30px convertido a rem */
+    border-radius: 0.625rem; /* 10px convertido a rem */
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    font-size: 0.625rem; /* Ajuste según tu preferencia, convertido a rem */
+    padding-left: 3%; /* Se mantiene, es un valor porcentual para diseño responsivo */
+}
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* No requiere conversión */
+}
+
+.button-2 {
+    background-color: #57BCDC !important;
+    color: white; /* No requiere conversión */
+}
+
+.button-3 {
+    background-color: #4CA78E !important;
+    color: white; /* No requiere conversión */
+}

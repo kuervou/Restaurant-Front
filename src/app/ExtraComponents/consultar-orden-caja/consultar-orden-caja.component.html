@@ -1,0 +1,58 @@
+<mat-dialog-content>
+    <h1>Resumen de la Orden</h1>
+    <div class="div-resumen">
+         <!-- Nuevo bloque para información adicional -->
+         <div class="order-details-container">
+            <!-- Primera fila con tres detalles -->
+            <div class="order-details-row">
+              <p><strong>Empleado:</strong> {{ data.orden.empleado ? data.orden.empleado.nombre : 'N/A' }}</p>
+              <p><strong>Cliente:</strong> {{ data.orden.cliente ? data.orden.cliente.nombre : 'N/A' }}</p>
+              <p><strong>Estado:</strong> {{ data.orden.estado }}</p>
+            </div>
+            <!-- Segunda fila con los siguientes tres detalles -->
+            <div class="order-details-row">
+              <p><strong>Fecha:</strong> {{ data.orden.fecha | date:'mediumDate' }}</p>
+              <p><strong>Hora:</strong> {{ data.orden.hora }}</p>
+              <p><strong>Responsable:</strong> {{ data.orden.responsable }}</p>
+            </div>
+          </div>
+
+          <table style="width: 100%; height: 100%;">
+            <tr>
+              <th>Cant</th>
+              <th>Producto</th>
+              <th>$ por unidad</th>
+              <th>$total</th>
+              <th>Acciones</th> <!-- Encabezado de la nueva columna -->
+            </tr>
+            <tr *ngFor="let item of data.orden.items">
+              <td>{{ item.cantidad }}</td>
+              <td>{{ item.itemMenu.nombre }}</td>
+              <td>{{ item.precio | currency }}</td>
+              <td>{{ item.cantidad * item.precio | currency }}</td>
+              <td>
+                <!-- Botón de acción -->
+                <button class="btn-action" (click)="abrirModalEliminarItem(item)">
+                  <mat-icon>remove</mat-icon><!-- Icono de FontAwesome -->
+                </button>
+              </td>
+            </tr>
+          </table>          
+      <div class="div-obs">
+        <mat-divider></mat-divider>
+        <mat-label style="display:flex; justify-content:flex-end; padding-right: 1rem;">
+          TOTAL: {{ data.orden.total | currency }} PAGO: {{ estadoPagos.totalPagado | currency }}
+        </mat-label>
+        <h3>Observaciones</h3>
+        <ul>
+          <li *ngFor="let obs of observacionesArray">{{ obs }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Nuevo botón debajo de las observaciones -->
+    <div class="div-acciones">
+      <button mat-button (click)="abrirModalPagos()">Pagos de la orden</button>
+    </div>
+  </mat-dialog-content>
+  

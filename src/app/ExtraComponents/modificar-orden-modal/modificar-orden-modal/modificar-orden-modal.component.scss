@@ -1,0 +1,96 @@
+/* Estilos para los botones "Añadir Orden" y "Ver Ordenes Antiguas" */ 
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Ajusta el margen inferior según sea necesario */
+}
+
+.history-button{
+    margin-right: 5%;
+}  
+
+.add-order-button {
+    background-color: #4CA78E;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 10px; /* Ajusta el margen inferior según sea necesario */
+    margin-left: 3vh;
+}
+
+.add-order-button:hover {
+background-color: #347763; /* Cambia el color de fondo al hacer hover */
+}
+
+/* Estilos para listar las mesas */ 
+
+/* Container con el fondo verde */ 
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Alinea a la izquierda */
+        background-color: #1B4338;
+        padding-top: 2.5vh; /* Ajusta el espacio superior en unidades relativas */
+        padding-bottom: 10vh; /* Ajusta el espacio inferior en unidades relativas */
+        max-width: 90vw; /* Establece un ancho máximo en unidades relativas */
+        min-height: 125vw;
+        max-height: 125vw;
+        margin: 0 auto; /* Centra el contenedor horizontalmente */
+        border-radius: 20px;
+    }
+
+    .mat-expansion-panel-header {
+        color: #000; /* Establece el color de texto deseado */
+        background-color: #E8FFF9;
+      }
+
+    .mat-expansion-panel input::placeholder {
+    text-align: center;
+    }
+
+    .mat-accordion {
+        width: 100%;
+      }
+
+      .option {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px;
+        border-bottom: 1px solid #ccc; /* Agrega un borde inferior entre las opciones */
+      }
+
+      .option-content {
+        display: flex;
+        align-items: center;
+      }
+
+      .option-buttons {
+        display: flex;
+        gap: 8px; /* Espacio entre los botones */
+        justify-content: flex-end; /* Alinea los elementos al extremo derecho */
+      }
+
+      .cantidad{
+        width: 20%;
+        text-align: center;
+      }
+
+      .remove{
+        background-color: #F96464;
+        color: white;
+      }
+
+      .add{
+        background-color: #4CA78E;
+        color: white;
+      }
+
+      .option-buttons button {
+        padding: 5px; /* Ajusta el padding de los botones */
+        font-size: 14px; /* Reducir el tamaño del texto de los botones si es necesario */
+    }

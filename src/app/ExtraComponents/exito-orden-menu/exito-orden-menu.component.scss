@@ -1,0 +1,34 @@
+.success-modal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    max-width: 400px;
+  
+    .icon-container {
+      margin-bottom: 24px;
+      
+      img {
+        width: 12rem; // Puedes ajustar este tamaño según lo necesites
+      }
+    }
+  
+    .message-container {
+      margin-bottom: 24px;
+      
+      h2 {
+        text-align: center;
+      }
+    }
+  
+    .button-container {
+      width: 100%;
+  
+      button {
+        width: 100%;
+        border-radius: 0;
+        font-weight: bold;
+      }
+    }
+  }
+  

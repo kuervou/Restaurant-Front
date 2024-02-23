@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div style="padding-left: 4%;">
+<button mat-icon-button (click)="navigateTo('homeadmin')">
+    <mat-icon class="back-arrow">arrow_back</mat-icon>
+  </button>
+</div>
+<div class="cards-container">
+    <mat-card class="clickable-card" style="background-color: #1B4338; color: #FFFFFF;"
+      (click)="navigateTo('categorias')">
+      <mat-card-title>Categorias</mat-card-title>
+    </mat-card>
+  
+    <mat-card class="clickable-card" style="background-color: #E8FFF9; color: #000000;"
+      (click)="navigateTo('grupos')">
+      <mat-card-title>Grupos de Comida</mat-card-title>
+    </mat-card>
+  
+    <!-- Nuevo botón agregado -->
+    <mat-card class="clickable-card" style="background-color: #1B4338; color: #FFFFFF;"
+      (click)="navigateTo('mesas')">
+      <mat-card-title>Gestion de Mesas</mat-card-title>
+    </mat-card>
+  </div>
+  

@@ -1,0 +1,118 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+  padding-right: 2rem; /* Unidades relativas para el relleno del contenedor */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .back-button,
+  .actions {
+    display: flex;
+    align-items: center;
+
+    .filter,
+    .search {
+      margin-right: 1em; /* Unidades relativas al texto para el margen */
+    }
+  }
+}
+.actions {
+  display: flex;
+  align-items: stretch;
+
+  .filter,
+  .search {
+    margin-right: 1rem; /* Espaciado consistente para los elementos de filtrado y búsqueda */
+  }
+
+  .add-button {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 3.45rem; /* Altura consistente */
+    background-color: #4CAF50 !important;
+    line-height: 1; /* Línea única para el texto */
+    font-size: 0.9rem; /* Tamaño de fuente consistente */
+  }
+}
+
+mat-header-cell, mat-cell {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  text-align: center; // Esto es para el contenido que no es un flex container
+}
+
+mat-paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+
+/* Estilos para pantallas grandes por defecto */
+.actions-large-screen {
+  display: flex;
+}
+
+.actions-small-screen {
+  display: none;
+}
+
+/* Ocultar botones grandes y mostrar botón de menú en pantallas pequeñas */
+@media screen and (max-width: 600px) {
+
+  .mat-column-fecha, .mat-column-hora, .mat-column-mozo {
+    display: none;
+  }
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+
+    .back-button,
+    .actions {
+      width: 100%;
+      justify-content: flex-start;
+      margin-bottom: 0.5rem;
+    }
+
+    .filter,
+    .search {
+      width: 100%; // Asegura que los elementos de entrada usen toda la anchura
+      margin-bottom: 0.5rem;
+    }
+
+    .add-button {
+      margin-bottom: 1rem;
+      order: 3; // Se ajusta el orden para que 'Agregar Ítem' vaya al final
+    }
+  }
+
+  mat-paginator {
+    flex-direction: column;
+    margin-top: 0.5rem;
+  }
+
+  .actions-large-screen {
+    display: none;
+  }
+
+  .actions-small-screen {
+    display: inline-block;
+  }
+
+  .mat-cell,
+  .mat-header-cell {
+    padding: 8px;
+  }
+}

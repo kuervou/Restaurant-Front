@@ -1,0 +1,52 @@
+// Custom Theming for Angular Material
+@use '@angular/material' as mat;
+
+// Include the common styles for Angular Material.
+@include mat.core();
+
+// Definir los colores customizados
+$primary-color: #2E8B57;  // Verde oscuro
+$secondary-color: #A9A9A9; // Gris
+$background-color: #F5F5F5; // Color de fondo ligero
+
+// Definir las paletas usando tus colores
+$custom-primary: mat.define-palette(mat.$green-palette, 500);
+$custom-accent: mat.define-palette(mat.$grey-palette, A200, A100, A400);
+$custom-warn: mat.define-palette(mat.$red-palette);
+
+// Crear el tema customizado
+$custom-theme: mat.define-light-theme((
+  color: (
+    primary: $custom-primary,
+    accent: $custom-accent,
+    warn: $custom-warn,
+  )
+));
+
+// Incluir estilos del tema para todos los componentes
+@include mat.all-component-themes($custom-theme);
+
+
+// Estilos globales
+html, body { 
+  height: 100%; 
+  background-color: #D8D8D8;
+  
+}
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+.cdk-overlay-dark-backdrop {
+  background-color: rgba(0, 0, 0, 0.8); // Aquí puedes ajustar la opacidad según tus necesidades.
+  backdrop-filter: blur(5px); // Esto agregará el efecto de difuminado.
+}
+
+@font-face {
+  font-family: 'PaytoneOne'; // Puedes poner el nombre que quieras
+  src: url('./assets/fonts/PaytoneOne-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

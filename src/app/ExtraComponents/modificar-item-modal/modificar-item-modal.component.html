@@ -1,0 +1,49 @@
+<mat-dialog-content class="dialog-content">
+  <form [formGroup]="ItemForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label><mat-icon>label</mat-icon> Nombre</mat-label>
+      <input matInput formControlName="nombre">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label><mat-icon>description</mat-icon> Descripcion</mat-label>
+      <input matInput formControlName="descripcion">
+    </mat-form-field>
+
+    <div class="row">
+      <mat-form-field appearance="fill" class="half-width">
+        <mat-label><mat-icon>category</mat-icon> Categoría</mat-label>
+        <mat-select formControlName="categoriaId">
+          <mat-option *ngFor="let cat of categorias" [value]="cat.id">
+            {{ cat.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="half-width">
+        <mat-label><mat-icon>storage</mat-icon> CantXCasillero</mat-label>
+        <input matInput formControlName="cantxCasillero">
+      </mat-form-field>
+    </div>
+
+    <div class="row cost-section">
+      <mat-radio-group formControlName="porUnidad">
+        <mat-radio-button color="primary" value="casillero" class="radio-btn" [checked]="!item.porUnidad">Casillero</mat-radio-button>
+        <mat-radio-button color="primary" value="unidad" class="radio-btn" [checked]="item.porUnidad">Unidad</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field appearance="fill" class="cost-input">
+        <mat-label><mat-icon>attach_money</mat-icon> Costo</mat-label>
+        <input matInput formControlName="costo">
+      </mat-form-field>
+    </div>
+
+    <mat-dialog-actions class="dialog-actions">
+      <button mat-button (click)="onCancel()">Cancelar</button>
+      <button mat-button color="primary" type="submit">Confirmar</button>
+    </mat-dialog-actions>
+
+  </form>
+</mat-dialog-content>
+
+

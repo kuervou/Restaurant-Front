@@ -1,0 +1,14 @@
+.stock-section {
+    display: flex;
+    align-items: center; /* This will vertically center align the items */
+    justify-content: space-between; /* This will add space between the elements */
+  }
+  
+  mat-form-field {
+    flex: 1; /* This will allow the input field to grow */
+  }
+  
+  button[mat-icon-button] {
+    margin: 0 8px; /* Adjust margin as needed */
+  }
+  

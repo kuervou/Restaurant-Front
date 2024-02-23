@@ -1,0 +1,26 @@
+<div class="header" style="background-color: #D8D8D8; padding-top: 1rem; padding-left: 1rem;">
+    <button mat-button class="back-button" (click)="onClose()">
+        <mat-icon>arrow_back</mat-icon> Volver
+    </button>
+</div>
+<div class="container">
+    <mat-table [dataSource]="dataSource">
+
+        <!-- Nombre Column -->
+        <ng-container matColumnDef="mesa" >
+            <mat-header-cell *matHeaderCellDef style="display: flex; justify-content: center; font-weight: bold; font-size: 2rem;"> Mesa </mat-header-cell>
+            <mat-cell *matCellDef="let item"style="display: flex; justify-content: center; font-size:1.5rem;" > {{item.nroMesa}} </mat-cell>
+        </ng-container>
+
+        <!-- Acciones Column -->
+        <ng-container matColumnDef="estado">
+            <mat-header-cell *matHeaderCellDef style="display: flex; justify-content: center;font-weight: bold; font-size: 2rem;"> Estado </mat-header-cell>
+            <mat-cell *matCellDef="let item" style="display: flex; justify-content: center;">
+                <button mat-icon-button [ngClass]="item.libre ? 'add' : 'remove'">
+                </button>
+            </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>

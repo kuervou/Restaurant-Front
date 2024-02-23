@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>Forma de venta</h2>
+
+<mat-dialog-content class="dialog-content">
+    <!-- Radio Buttons -->
+    <mat-radio-group aria-label="Forma de venta" [(ngModel)]="saleType">
+        <mat-radio-button color="primary" [value]="false">Trago</mat-radio-button>
+        <mat-radio-button color="primary" [value]="true">Unidad</mat-radio-button>
+    </mat-radio-group>
+    
+
+    <!-- Chips y Dropdown -->
+    <div class="chip-list">
+        <mat-chip-grid>
+            <!-- Chips que se agregan dinámicamente desde el select o que ya están presentes inicialmente -->
+            <mat-chip-row *ngFor="let chip of displayedChips">
+                {{ chip.nombre }}
+            </mat-chip-row>
+        </mat-chip-grid>
+
+        <button mat-button *ngIf="displayedChips.length > 0" (click)="borrarItems()">Limpiar</button>
+    </div>
+    
+    <mat-form-field class="full-width">
+        <mat-label>Seleccionar insumos desde el inventario</mat-label>
+        <mat-select (selectionChange)="addIngredient($event)">
+            <!-- Aquí puedes tener un arreglo de ingredientes disponibles para agregar al chip list -->
+            <mat-option *ngFor="let item of items" [value]="item.id">
+                {{ item.nombre }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button mat-button (click)="onCancel()">Cancelar</button>
+    <button mat-button color="primary" (click)="confirmSelection()">Confirmar</button>
+</mat-dialog-actions>

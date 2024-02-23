@@ -1,0 +1,37 @@
+.dialog-container {
+    padding: 1rem;
+    max-width: 100%;
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  mat-dialog-title {
+    margin-bottom: 24px;
+  }
+  
+  mat-dialog-actions {
+    padding: 0;
+    margin: 0;
+    
+    padding-top: 16px;
+  }
+  
+  button {
+    border-radius: 0;
+    font-weight: 500;
+  }
+
+  .full-divider {
+    width: calc(100% + 2rem); // Para compensar el padding de .dialog-container
+    margin-left: -1rem;
+    margin-right: -1rem;
+    height: 0.2rem;
+    background-color: #7D9A93;
+}
+
+  
+  
+  

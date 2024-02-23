@@ -1,0 +1,18 @@
+.custom-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .modal-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .modal-actions {
+    display: flex;
+    gap: 1rem;
+  }
+  

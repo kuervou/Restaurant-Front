@@ -1,0 +1,97 @@
+.mat-dialog-content .cdk-overlay-pane.mat-dialog-container {
+    padding: 0; /* Establece el padding a 0 para quitarlo */
+  }
+
+.div-top{
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu{
+    background-color: #4CA78E;
+}
+
+ /* Mantén los estilos restantes como los definiste previamente */
+  .div-resumen {
+    background-color: #E8FFF9;
+    width: 100%;
+    border-radius: 10px;
+    overflow: auto;
+    margin-bottom: 2%;
+  }
+
+  .div-resumen table tr {
+    border-bottom: 1px solid #ABABAB;
+  }
+
+  .div-resumen table td {
+    text-align: center;
+    font-size: 13px;
+  }
+
+  .div-resumen h1{
+    text-align: center;
+  }
+
+  .div-obs {
+    background-color: #E6E6E6;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: auto;
+  }
+
+  .div-obs h3{
+    margin-bottom: 0;
+  }
+
+  .div-obs ul li {
+    font-size: 13px;
+  }
+
+  .buttons{
+    margin:auto;
+  }
+
+  .confirm{
+    background-color: #4CA78E;
+  }
+
+  .option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #ccc; /* Agrega un borde inferior entre las opciones */
+  }
+
+  .option-content {
+    display: flex;
+    align-items: center;
+  }
+
+  .option-buttons {
+    display: flex;
+    gap: 8px; /* Espacio entre los botones */
+    justify-content: flex-end; /* Alinea los elementos al extremo derecho */
+  }
+
+  .cantidad{
+    width: 20%;
+    text-align: center;
+  }
+
+  .remove{
+    background-color: #F96464;
+    color: white;
+  }
+
+  .add{
+    background-color: #4CA78E;
+    color: white;
+  }
+
+  .option-buttons button {
+    padding: 5px; /* Ajusta el padding de los botones */
+    font-size: 14px; /* Reducir el tamaño del texto de los botones si es necesario */
+}

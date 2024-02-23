@@ -1,0 +1,25 @@
+.cards-container {
+    display: flex;              // Cambia de grid a flex
+    justify-content: center;   // Centra los elementos horizontalmente
+    align-items: center;       // Centra los elementos verticalmente
+    gap: 20px;                 // Espacio entre las tarjetas
+    height: calc(100% - 7rem);              // Ocupa todo el alto disponible
+    width: 100%;               // Ocupa todo el ancho disponible
+}
+  
+.clickable-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 300px;
+    cursor: pointer;
+  
+    &:hover {
+        background-color: rgba(0,0,0,0.05);
+    }
+}
+
+mat-card-title {
+    font-size: 24px;
+}

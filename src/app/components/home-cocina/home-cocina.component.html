@@ -1,0 +1,43 @@
+<div class="mat-card green-card">
+  <div class="container">
+    <div fxLayout="row wrap" fxLayout.lt-md="column">
+      <ng-container *ngFor="let orden of ordenes">
+        <mat-card class="custom-card" fxFlex="48%" fxFlex.lt-md="100%">
+          <mat-card-title class="custom-title">
+            Orden nº {{ orden.id }} - {{ orden.hora.split(':').slice(0, 2).join(':') || 'N/A' }}
+          </mat-card-title>        
+          <p class="custom-info">
+            Mesa {{ getMesas(orden) }} - Mozo: {{ orden.empleado?.nombre || 'Autoservicio' }}
+          </p>
+          
+          <hr>
+
+          <ng-container *ngFor="let item of filteredItemsMap[orden.id] || []; let i = index">
+            <!-- Solo si el índice es par, mostrar dos ítems -->
+            <ng-container *ngIf="i % 2 === 0">
+                <div class="item">
+                    <span> {{ item.cantidad }} x {{ item.itemMenu.nombre || 'Item N/A' }}</span>
+                    
+                    <!-- Si hay un siguiente ítem, mostrarlo también -->
+                    <ng-container *ngIf="filteredItemsMap[orden.id][i + 1]">
+                        <span> {{ filteredItemsMap[orden.id][i + 1].cantidad }} x {{  filteredItemsMap[orden.id][i + 1].itemMenu.nombre || 'Item N/A' }}</span>
+                    </ng-container>
+                </div>
+                <hr>
+            </ng-container>
+        </ng-container>
+        
+        
+
+          <hr>
+          <p class="custom-info">Observaciones:</p>
+          <p class="custom-observation">{{ orden.observaciones }}</p>
+          <hr>
+          <div class="d-flex justify-content-center mt-3">
+            <button mat-raised-button class="mi-boton" (click)="prepararOrden(orden.id)">Orden Preparada</button>
+          </div>
+        </mat-card>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,107 @@
+/* Estilos para los botones "Añadir Orden" y "Ver Ordenes Antiguas" */ 
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.625rem; /* 10px convertido a rem */
+  padding-top: 1.25rem; /* 20px convertido a rem */
+}
+
+.history-button {
+  margin-right: 5%; /* Se mantiene, es un valor porcentual */
+}  
+
+.add-order-button {
+  background-color: #4CA78E;
+  color: white;
+  border: none;
+  border-radius: 0.625rem; /* 10px convertido a rem */
+  padding: 0.625rem 1.25rem; /* 10px y 20px convertidos a rem */
+  cursor: pointer;
+  margin-bottom: 0.625rem; /* 10px convertido a rem */
+  margin-left: 3vh; /* Se mantiene, es un valor relativo al alto de la ventana */
+}
+
+.add-order-button:hover {
+  background-color: #347763; /* No requiere conversión */
+}
+
+/* Estilos para listar las mesas */ 
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #1B4338;
+  padding-top: 2.5vh; /* Se mantiene */
+  padding-bottom: 10vh; /* Se mantiene */
+  max-width: 90vw; /* Se mantiene */
+  min-height: 125vw; /* Se mantiene */
+  max-height: 125vw; /* Se mantiene */
+  margin: 0 auto;
+  border-radius: 1.25rem; /* 20px convertido a rem */
+}
+
+.mat-expansion-panel-header {
+  color: #000;
+  background-color: #E8FFF9;
+  font-weight: bold;
+}
+
+.mat-expansion-panel input::placeholder {
+  text-align: center;
+}
+
+.mat-accordion {
+  width: 100%;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem; /* 8px convertido a rem */
+  border-bottom: 1px solid #ccc;
+}
+
+.option-content {
+  display: flex;
+  align-items: center;
+}
+
+.option-buttons {
+  display: flex;
+  gap: 0.5rem; /* 8px convertido a rem */
+  justify-content: flex-end;
+}
+
+.cantidad {
+  width: 2.5rem; /* 40px convertido a rem */
+  height: 1.5rem; /* 24px convertido a rem */
+  text-align: center;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.remove {
+  background-color: #F96464;
+  color: white;
+}
+
+.add {
+  background-color: #4CA78E;
+  color: white;
+}
+
+.option-buttons button {
+  padding: 0;
+  font-size: 0.75rem; /* 12px convertido a rem */
+  width: 1.5rem; /* 24px convertido a rem */
+  height: 1.5rem; /* 24px convertido a rem */
+  border-radius: 0.75rem; /* 12px convertido a rem */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

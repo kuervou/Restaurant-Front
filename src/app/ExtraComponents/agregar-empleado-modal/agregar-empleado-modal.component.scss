@@ -1,0 +1,94 @@
+// Definición de Variables Sass
+$primary-color: #2E8B57;  // Verde oscuro para elementos primarios
+$secondary-color: #A9A9A9; // Gris para elementos secundarios
+$background-color: #F5F5F5; // Color de fondo ligero
+$text-color: #333; // Color principal de texto
+
+.dialog-content {
+  background-color: $background-color;
+  color: $text-color;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 1rem;
+
+  .full-width {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    .half-width {
+      width: 48%; 
+    }
+  }
+
+  .cost-section {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .radio-btn {
+      margin-right: 1rem;
+      padding: 0.5rem; 
+      transition: background-color 0.3s;
+    }
+  
+    .cost-input {
+      flex-grow: 1;
+      margin-left: 1rem;
+    }
+  }
+}
+
+.dialog-actions {
+  background-color: $background-color;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  
+  button {
+    margin-left: 1rem; 
+    height: 36px;
+    transition: background-color 0.3s;
+    
+    &:not([color="primary"]) {
+      background-color: $secondary-color;
+      color: white;
+      &:hover {
+        background-color: darken($secondary-color, 10%);
+      }
+    }
+
+    &[color="primary"] {
+      background-color: $primary-color;
+      color: white;
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+}
+
+mat-label {
+  color: $text-color;
+  font-weight: 500; 
+  font-size: 1rem;
+}
+
+input[matInput] {
+  border-color: $secondary-color;
+  padding: 0.5rem 0; 
+}
+
+
+
+
+
+
+

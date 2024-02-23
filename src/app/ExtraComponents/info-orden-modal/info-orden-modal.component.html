@@ -1,0 +1,48 @@
+<mat-dialog-content>
+  <h1>Resumen de la Orden</h1>
+  <div class="order-details">
+    <div class="detail-column">
+      <span><strong>Nro Mesa:</strong> {{ data.mesas[0]?.nroMesa ?? 'No especificado' }}</span>
+      <span><strong>Mozo:</strong> {{ data.empleado?.nombre ?? 'No asignado' }}</span>
+      <span><strong>Entregado en mesa:</strong> {{ data.hora ?? 'Pendiente' }}</span>
+    </div>
+    <div class="detail-column">
+      <span><strong>Fecha:</strong> {{ data.fecha ?? 'No disponible' }}</span>
+      <span><strong>Cliente Preferencial:</strong> {{ data.cliente?.nombre ?? 'General' }}</span>
+      <span><strong>Cobrado:</strong> {{ data.createdAt | date:'HH:mm' }}</span>
+    </div>
+  </div>
+  <div class="div-resumen">
+    <table style="width: 100%; height: 100%;">
+      <tr>
+        <td>Cant</td>
+        <td>Producto</td>
+        <td>$ por unidad</td>
+        <td>$total</td>
+      </tr>
+      <tr *ngFor="let item of data.items">
+        <td>{{ item.cantidad }}</td>
+        <td>{{ item.itemMenu.nombre }}</td> <!-- Asumiendo que quieras mostrar el ID del menú -->
+        <td>{{ item.precio }}</td>
+        <td>{{ item.cantidad * item.precio }}</td>
+      </tr>
+    </table>
+    <mat-divider></mat-divider>
+    <mat-label style="display:flex; justify-content:flex-end; padding-right: 1rem;">TOTAL: ${{ data.total }}</mat-label>
+  </div>
+
+  <!-- En tu plantilla HTML -->
+<div class="div-obs">
+  <h3>Observaciones</h3>
+  <ul>
+    <li *ngFor="let obs of data.observaciones">{{ obs }}</li>
+  </ul>
+</div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="buttons">
+    <button mat-button (click)="dialogRef.close()">Volver</button>
+    <button mat-button class="confirm" (click)="dialogRef.close()">Confirmar</button>
+  </div>
+</mat-dialog-actions>

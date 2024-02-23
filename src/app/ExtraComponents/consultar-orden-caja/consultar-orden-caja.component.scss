@@ -1,0 +1,36 @@
+.order-details-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; /* Ajusta el margen según necesites */
+  }
+  
+  .order-details-row {
+    display: flex;
+    justify-content: space-between; /* Esto separará cada p elemento igualmente */
+    margin-bottom: 10px; /* Espacio entre las filas */
+  }
+  
+  .order-details-row p {
+    flex: 1; /* Esto hará que cada p elemento tenga el mismo ancho */
+    margin: 0 10px; /* Añade un poco de espacio entre los elementos */
+  }
+  
+  /* Ajustes para pantallas pequeñas si es necesario */
+  @media (max-width: 600px) {
+    .order-details-row {
+      flex-direction: column;
+    }
+  }
+
+  th, td {
+    text-align: center; /* Centra el texto horizontalmente */
+    vertical-align: middle; /* Centra el texto verticalmente */
+  }
+  
+  .btn-action {
+    /* Otros estilos que ya tengas, más... */
+    display: block; /* Hace que el botón sea un bloque para poder centrarlo */
+    margin: 0 auto; /* Centra el botón horizontalmente en la celda */
+  }
+  
+  

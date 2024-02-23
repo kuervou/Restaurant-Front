@@ -1,0 +1,49 @@
+<div style="background-color: #7D9A93; height: 100%; width: 100%;">
+    <mat-toolbar style="background-color: #D1F4EB; height: auto; font-family: PaytoneOne;">
+        <img src="../../../assets/LogoSinFondo.png" alt="Logo" class="logo">
+    
+        <!-- Div para envolver los textos -->
+        <div class="texts">
+            <span class="main-text">Hacé tu pedido</span>
+            <span class="subtitle">Y lo llevamos a tu mesa</span>
+        </div>
+    </mat-toolbar>
+    
+  <br>
+  <mat-accordion>
+    <!-- Comidas -->
+    <mat-expansion-panel #comidasPanel expanded (closed)="onPanelClosed(comidasPanel)" hideToggle>
+      <mat-expansion-panel-header style="font-weight: bold; font-size: 0.9rem;">
+        COMIDAS
+      </mat-expansion-panel-header>
+      <mat-divider></mat-divider>
+      <div *ngFor="let comida of comidas" class="menu-item" (click)="verDetallesGrupo(comida.id)">
+        <span class="item-title">{{ comida.nombre }}</span>
+        <mat-icon class="item-icon">navigate_next</mat-icon>
+      </div>
+    </mat-expansion-panel>
+
+    </mat-accordion>
+    <br>
+    <mat-accordion>
+    <!-- Bebidas -->
+    <mat-expansion-panel #bebidasPanel expanded (closed)="onPanelClosed(bebidasPanel)" hideToggle>
+      <mat-expansion-panel-header style="font-weight: bold; font-size: 0.9rem;">
+        BEBIDAS
+      </mat-expansion-panel-header>
+      <mat-divider></mat-divider>
+      
+      <div *ngFor="let bebida of bebidas" class="menu-item" (click)="verDetallesGrupo(bebida.id)">
+        <span class="item-title">{{ bebida.nombre }}</span>
+        <mat-icon class="item-icon">navigate_next</mat-icon>
+      </div>
+    </mat-expansion-panel>
+  
+    <!-- Puedes agregar más categorías siguiendo la estructura anterior -->
+  </mat-accordion>
+
+  <div class="container-button" *ngIf="itemsMenu.length > 0">
+    <button mat-raised-button class="add-button" (click)="openResumenOrdenDialog()">Ver orden - ${{ totalOrden }}</button>
+  </div>
+
+</div>

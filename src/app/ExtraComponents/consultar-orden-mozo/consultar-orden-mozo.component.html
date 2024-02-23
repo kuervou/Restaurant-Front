@@ -1,0 +1,35 @@
+<mat-dialog-content>
+    <h1>Resumen de la Orden</h1>
+    <div class="div-resumen">
+        <table style="width: 100%; height: 100%;">
+            <tr>
+              <td class="table-cell-centered">Cant</td>
+              <td class="table-cell-centered">Producto</td>
+              <td class="table-cell-centered">$ por unidad</td>
+              <td class="table-cell-centered">$total</td>
+            </tr>
+            <tr *ngFor="let item of data.items">
+              <td class="table-cell-centered">{{ item.cantidad }}</td>
+              <td class="table-cell-centered">{{ item.itemMenu.nombre }}</td>
+              <td class="table-cell-centered">{{ item.precio }}</td>
+              <td class="table-cell-centered">{{ item.cantidad * item.precio }}</td>
+            </tr>
+          </table>
+      <div class="div-obs">
+          <mat-divider></mat-divider>
+          <mat-label style="display:flex; justify-content:flex-end; padding-right: 1rem;">
+            TOTAL: ${{ calcularTotal() }}
+          </mat-label>
+          <h3>Observaciones</h3>
+          <ul>
+            <li *ngFor="let obs of observacionesSeparadas">{{ obs }}</li>
+          </ul>
+        </div>
+
+  
+    </div>
+
+  </mat-dialog-content>
+  <mat-dialog-actions class="button-centered">
+    <button mat-button (click)="onCancel()">Volver</button>
+  </mat-dialog-actions>

@@ -1,0 +1,15 @@
+.bold-title {
+    font-weight: bold; /* No hay dimensiones, no necesita cambios */
+}
+
+.selector-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Unidades relativas al tamaño de fuente base */
+    margin-bottom: 1rem; /* Unidades relativas al tamaño de fuente base */
+}
+
+.sub-title {
+    margin-top: 2rem; /* Unidades relativas al tamaño de fuente base */
+    margin-bottom: 1rem; /* Unidades relativas al tamaño de fuente base */
+}

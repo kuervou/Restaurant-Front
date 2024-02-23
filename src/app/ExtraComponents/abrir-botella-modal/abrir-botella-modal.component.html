@@ -1,0 +1,21 @@
+<h2 mat-dialog-title style="text-align: center; font-size: large;">Abrir Botella</h2>
+<mat-dialog-content class="custom-modal">
+    <div class="modal-header">
+      Seleccionar bebida
+    </div>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Bebida</mat-label>
+      <!-- Utiliza [(ngModel)] para el two-way data binding en el select -->
+      <mat-select [(ngModel)]="selectedDrink">
+        <!-- Itera sobre drinksList para mostrar las opciones -->
+        <mat-option *ngFor="let drink of drinksList" [value]="drink.id">{{ drink.nombre }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <div class="modal-actions">
+      <button mat-button mat-dialog-close>Cancelar</button>
+      <button mat-button color="primary"(click)="abrirUnaBotella(selectedDrink)" >Confirmar</button>
+    </div>
+  </mat-dialog-content>
+  

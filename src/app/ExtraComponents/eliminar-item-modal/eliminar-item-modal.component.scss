@@ -1,0 +1,15 @@
+.dialog-content {
+    padding: 1.25rem; // Ajusta según tus necesidades
+    text-align: center; // Centra el contenido textual
+  }
+  
+  .dialog-actions {
+    padding: 0.625rem 1.25rem;
+    display: flex;
+    justify-content: center; // Centra los botones
+  
+    button {
+      margin: 0 0.625rem; // Añade márgenes a los lados de cada botón
+    }
+  }
+  

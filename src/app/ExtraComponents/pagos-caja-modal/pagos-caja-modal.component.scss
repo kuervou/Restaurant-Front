@@ -1,0 +1,22 @@
+
+.container {
+    padding: 5rem;
+  
+    // Esto hará que el padding y el borde se incluyan en el ancho total del elemento
+    box-sizing: border-box;
+  }
+  
+  .mat-table {
+    width: 100%;
+    overflow-x: auto; // Esto te permitirá tener scroll solo si es necesario
+  }
+  
+  
+  mat-paginator {
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    margin-top: 1em; // Cambiado a unidades relativas
+  }
